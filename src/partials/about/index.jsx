@@ -4,7 +4,7 @@ import SectionWrapper from 'root/src/components/section-wrapper'
 import Button from 'root/src/components/button'
 import Image from 'next/image'
 import styled from './style'
-import fetchAboutData from '../../services/api'
+import { fetchAboutData } from '../../services/api'
 
 const About = (props) => {
   const [aboutData, setAboutData] = useState(null)
@@ -29,9 +29,17 @@ const About = (props) => {
   }
 
   return (
+    // <SectionWrapper
+    //   css={styled.About}
+    //   headerData={{ title: 'About me', description: 'Get to know me' }}
+    //   {...props}
+    // >
     <SectionWrapper
       css={styled.About}
-      headerData={{ title: 'About me', description: 'Get to know me' }}
+      headerData={{
+        title: aboutData?.title || 'Loading...',
+        description: aboutData?.subTitle || 'Loading...',
+      }}
       {...props}
     >
       <div className='row align-items-center'>
@@ -46,10 +54,14 @@ const About = (props) => {
           />
         </Col>
         <Col xs='12' lg='7'>
-          <h2 className='_subtitle'>Who am i?</h2>
-          <h2 className='_title'>{aboutData?.title || 'Loading...'}</h2>
+          <h2 className='_subtitle'>
+            {aboutData?.description || 'Loading...'}
+          </h2>
+          <h2 className='_title'>
+            {aboutData?.subDescription || 'Loading...'}
+          </h2>
           <div className='_description'>
-            <p>{aboutData?.description || 'Loading...'}</p>
+            <p>{aboutData?.github || 'Loading...'}</p>
           </div>
           <address className='_address'>
             <Row>
@@ -58,14 +70,8 @@ const About = (props) => {
                 <p>{aboutData?.email || 'Loading...'}</p>
               </Col>
               <Col className='_info' xs='12' md='6'>
-                <span>Age:</span>
-                <p>{aboutData?.age || 'Loading...'}</p>
-              </Col>
-            </Row>
-            <Row>
-              <Col className='_info' xs='12' md='6'>
-                <span>From:</span>
-                <p>{aboutData?.location || 'Loading...'}</p>
+                <span>Tel:</span>
+                <p>{aboutData?.tel || 'Loading...'}</p>
               </Col>
             </Row>
           </address>

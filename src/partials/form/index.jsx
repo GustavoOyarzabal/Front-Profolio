@@ -3,7 +3,8 @@ This is the Contact section. The contact form uses EmailJS API
 to send emails: https://www.emailjs.com
 */
 
-import React, { useRef, useReducer } from 'react'
+import React, { useRef, useReducer, useEffect, useState } from 'react'
+import axios from 'axios'
 import emailjs from '@emailjs/browser'
 import { Row, Col } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form'
@@ -26,9 +27,9 @@ Make sure the values are replaced with your own EmailJS credentials.
 Read the documentation for more information
 */
 const emailjsParams = {
-  serviceId: "your_service_id",
-  templateId: "your_template_id",
-  publicKey: "your_public_key",
+  serviceId: 'your_service_id',
+  templateId: 'your_template_id',
+  publicKey: 'your_public_key',
 }
 
 // Define initial state
@@ -48,7 +49,6 @@ const initialState = {
 const stateReducer = (state, action) => {
   switch (action.type) {
     case 'loading':
-      // Return loading state
       return {
         submit: {
           children: 'Wait...',
@@ -64,9 +64,7 @@ const stateReducer = (state, action) => {
           `,
         },
       }
-
     case 'success':
-      // Return success state
       return {
         submit: {
           children: 'Success',
@@ -85,7 +83,6 @@ const stateReducer = (state, action) => {
         },
       }
     case 'failure':
-      // Return failure state
       return {
         submit: {
           children: 'Error',
@@ -108,21 +105,41 @@ const stateReducer = (state, action) => {
   }
 }
 
-const Contact = (props) => {
-  // Ref to store form DOM element
+const Formulaire = (props) => {
   const form = useRef()
-
-  // State management with reducer
   const [state, dispatch] = useReducer(stateReducer, initialState)
+  const [formData, setFormData] = useState({
+    title: '',
+    subTitle: '',
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  })
 
   // Validate EmailJS params
   emailjsParamsSchema.parse(emailjsParams)
 
+  // Fetch form data from the backend
+  useEffect(() => {
+    const fetchFormData = async () => {
+      try {
+        const response = await axios.get(
+          'http://localhost:3001/api/portfolios/form',
+        ) // Asegúrate de que la URL del backend sea correcta
+        const formResponse = response.data // Assuming you're fetching the form entry
+        setFormData(formResponse)
+      } catch (error) {
+        console.error('Error fetching form data:', error)
+      }
+    }
+
+    fetchFormData()
+  }, [])
+
   const sendEmail = (e) => {
     // Prevent default form submit behavior
     e.preventDefault()
-
-    // Set state to loading
     dispatch({ type: 'loading' })
 
     // Send email via EmailJS
@@ -135,25 +152,15 @@ const Contact = (props) => {
       )
       .then(
         () => {
-          // Set state to success
           dispatch({ type: 'success' })
-
-          // Reset form
           form.current.reset()
-
-          // Clear state after a delay
           setTimeout(() => {
             dispatch({ type: null })
           }, 6000)
         },
         (error) => {
-          // eslint-disable-next-line no-console
           console.error(error)
-
-          // Set state to failure
           dispatch({ type: 'failure' })
-
-          // Clear state after a delay
           setTimeout(() => {
             dispatch({ type: null })
           }, 6000)
@@ -166,17 +173,15 @@ const Contact = (props) => {
       css={styled.Contact}
       altBg={true}
       headerData={{
-        title: 'Get in Touch',
-        description: 'Feel free to contact me anytime',
+        title: formData.title || 'Get in Touch',
+        description: formData.subTitle || 'Feel free to contact me anytime',
       }}
       {...props}
     >
       <Row>
         <Col xs='12'>
-          {/* Form */}
           <Form onSubmit={sendEmail} ref={form}>
             <Row>
-              {/* Form fields */}
               <Form.Group
                 className='_group'
                 as={Col}
@@ -188,6 +193,10 @@ const Contact = (props) => {
                   type='text'
                   placeholder='Name'
                   name='name'
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
                   required
                 />
               </Form.Group>
@@ -203,6 +212,10 @@ const Contact = (props) => {
                   type='email'
                   placeholder='Email'
                   name='email'
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                   required
                 />
               </Form.Group>
@@ -217,6 +230,10 @@ const Contact = (props) => {
                   type='text'
                   placeholder='Subject'
                   name='subject'
+                  value={formData.subject}
+                  onChange={(e) =>
+                    setFormData({ ...formData, subject: e.target.value })
+                  }
                   required
                 />
               </Form.Group>
@@ -232,15 +249,16 @@ const Contact = (props) => {
                   rows='5'
                   placeholder='Message'
                   name='message'
+                  value={formData.message}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
                   required
                 />
               </Form.Group>
 
               <Col xs='12'>
-                {/* Submit button */}
                 <Button className='_submit' type='submit' {...state.submit} />
-
-                {/* Submission Feedback */}
                 <p className='_feedback' {...state.feedback} />
               </Col>
             </Row>
@@ -251,4 +269,4 @@ const Contact = (props) => {
   )
 }
 
-export default Contact
+export default Formulaire

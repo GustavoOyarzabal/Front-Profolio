@@ -3,7 +3,7 @@ This is the home page but with a video background for the Hero section
 */
 
 import ScrollWrapper from 'root/src/components/scroll-wrapper'
-import Hero from 'root/src/partials/hero'
+import Hero from 'root/src/partials/presentation'
 import About from 'root/src/partials/about'
 import Services from 'root/src/partials/services'
 import Hire from 'root/src/partials/hire'

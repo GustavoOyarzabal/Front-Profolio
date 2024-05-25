@@ -1,4 +1,5 @@
-import { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import { Row, Col } from 'react-bootstrap'
 import Typed from 'typed.js'
 import SectionWrapper from 'root/src/components/section-wrapper'
@@ -22,15 +23,33 @@ const MouseShape = () => (
   </ScrollLink>
 )
 
-const Hero = (props) => {
+const Presentation = (props) => {
   const { variant, ...otherProps } = props
-  const data = {
-    roles: ['Developer'],
-  }
+  const [presentationData, setPresentationData] = useState({
+    skillName: 'Developer',
+    skillLastName: '',
+    skillHeadline: '',
+  })
+
+  useEffect(() => {
+    const fetchPresentationData = async () => {
+      try {
+        const response = await axios.get(
+          'http://localhost:3001/api/portfolios/presentation',
+        )
+        const presentationResponse = response.data
+        setPresentationData(presentationResponse)
+      } catch (error) {
+        console.error('Error fetching presentation data:', error)
+      }
+    }
+
+    fetchPresentationData()
+  }, [])
 
   useEffect(() => {
     const options = {
-      strings: data.roles,
+      strings: [presentationData.skillHeadline || 'Developer'],
       typeSpeed: 40,
       backSpeed: 40,
       loop: true,
@@ -42,7 +61,7 @@ const Hero = (props) => {
     return () => {
       typed.destroy()
     }
-  }, [data.roles])
+  }, [presentationData.skillHeadline])
 
   const setVariant = () => {
     switch (variant) {
@@ -71,8 +90,8 @@ const Hero = (props) => {
       >
         <Col xs='12' lg='8' className='text-center'>
           <h1 className='_name'>
-            Gustavo
-            <span> Oyarzabal</span>
+            {presentationData.skillName}
+            <span> {presentationData.skillLastName}</span>
           </h1>
           <h4 className='_headline'>
             I&apos;m a <span id='typed' />
@@ -84,4 +103,4 @@ const Hero = (props) => {
   )
 }
 
-export default Hero
+export default Presentation
