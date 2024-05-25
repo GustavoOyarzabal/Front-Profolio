@@ -11,7 +11,7 @@ import Hire from 'root/src/partials/hire'
 import Experience, { ExperienceDataPath } from 'root/src/partials/experience'
 import Formations, { FormationsDataPath } from 'root/src/partials/formations'
 
-import Contact from 'root/src/partials/contact'
+import Contact from 'root/src/partials/form'
 import Footer from 'root/src/partials/footer'
 import parseAllMdx from 'root/src/lib/parseAllMdx'
 import Metadata from 'root/src/metadata'
