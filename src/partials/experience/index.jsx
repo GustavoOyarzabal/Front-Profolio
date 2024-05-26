@@ -348,3 +348,235 @@ const Experience = (props) => {
 }
 
 export default Experience
+
+// export default Experience
+// import React, { useState, useContext, createContext, useReducer } from 'react'
+// import SectionWrapper from 'root/src/components/section-wrapper'
+// import { Swiper, SwiperSlide } from 'swiper/react'
+// import Image from 'next/image'
+// import 'swiper/css'
+// import 'swiper/css/pagination'
+// import { Card, Row, Container } from 'react-bootstrap'
+// import { MDXRemote } from 'next-mdx-remote'
+// import { fetchExperienceData } from 'root/src/services/api'
+// import { capitalizeFirstLetter } from 'root/utils'
+// import { cx } from '@emotion/css'
+// import dayjs from 'dayjs'
+// import Lightbox, { LightboxThumbnail } from 'root/src/components/lightbox'
+
+// import styled from './style'
+
+// // Define donde se encuentran los archivos MDX
+// export const ExperienceDataPath = 'src/partials/experience/data/*.mdx'
+
+// // Crear un contexto para pasar datos entre componentes
+// const Context = createContext({})
+
+// // Renderiza una tarjeta de vista previa para cada publicación de experiencia
+// const Post = ({ data }) => {
+//   const { dispatch } = useContext(Context)
+
+//   // Llena el estado de datos con contenido, lo que hace que se muestre el lightbox
+//   const clickEvent = () => {
+//     dispatch({ type: 'data', data })
+//   }
+
+//   // Desestructura los datos pasados
+//   const frontmatter = data.scope?.frontmatter || {}
+//   const { title, date, tags, summary, processedImages } = frontmatter
+//   const thumbnailObj = processedImages?.thumbnail
+//     ? processedImages.thumbnail[0]
+//     : null // Actualiza esto según tus datos
+
+//   // Llena la tarjeta de publicación de experiencia con etiquetas pasadas
+//   const tagsToText = (array) => {
+//     if (!array) return null
+//     const treatedArray = array.map((element) => capitalizeFirstLetter(element))
+//     if (treatedArray.length === 1)
+//       return <a className='link'>{treatedArray[0]}</a>
+//     return treatedArray.reduce((prev, curr) => (
+//       <>
+//         <span className='_tag'>{prev}</span>
+//         <span className='_delimiter'>/</span>
+//         <span className='_tag'>{curr}</span>
+//       </>
+//     ))
+//   }
+
+//   // Formatea la fecha pasada
+//   const dateToText = (dateInput) => dayjs(dateInput).format('MMMM D, YYYY')
+
+//   return (
+//     <Card css={styled.Post}>
+//       {/* Imagen de la tarjeta de publicación de experiencia */}
+//       <span onClick={clickEvent} className='_image-wrapper'>
+//         {thumbnailObj && (
+//           <Image
+//             className='card-img-top'
+//             style={{ width: '100%', objectFit: 'cover' }}
+//             src={thumbnailObj.url}
+//             alt='experience post thumbnail'
+//             width={thumbnailObj.metadata.width}
+//             height={thumbnailObj.metadata.height}
+//             placeholder='blur'
+//             blurDataURL={thumbnailObj.blurData}
+//           />
+//         )}
+//         <span className='_date'>{dateToText(date)}</span>
+//       </span>
+//       {/* Cuerpo de la tarjeta de publicación de experiencia */}
+//       <Card.Body className='_content'>
+//         <Card.Title onClick={clickEvent} className='_title'>
+//           {title}
+//         </Card.Title>
+//         <Card.Text className='_summary'>{summary}</Card.Text>
+//         <div className='_tags'>
+//           <span className='_key'>Tags: </span>
+//           <span className='_list'>{tagsToText(tags)}</span>
+//         </div>
+//       </Card.Body>
+//     </Card>
+//   )
+// }
+
+// /*
+// Renderiza un componente Swiper para mostrar tarjetas de publicaciones de experiencia
+// Maneja la navegación entre publicaciones
+// */
+// const PostsList = () => {
+//   const { fetchedData } = useContext(Context)
+//   const [swiperInstance, setSwiperInstance] = useState(null)
+//   const [slideEdge, setSlideEdge] = useState([null, null])
+
+//   const handleNav = (action) => {
+//     if (!swiperInstance) return
+//     switch (action) {
+//       case 'PREV':
+//         swiperInstance.slidePrev()
+//         break
+//       case 'NEXT':
+//         swiperInstance.slideNext()
+//         break
+//       default:
+//         break
+//     }
+//   }
+
+//   return (
+//     <div css={styled.PostsList}>
+//       <Row>
+//         <div className='_nav'>
+//           <span
+//             className={cx({
+//               '--active': !slideEdge[0],
+//             })}
+//             onClick={() => handleNav('PREV')}
+//           >
+//             PREV
+//           </span>
+//           <span
+//             className={cx({
+//               '--active': !slideEdge[1],
+//             })}
+//             onClick={() => handleNav('NEXT')}
+//           >
+//             NEXT
+//           </span>
+//         </div>
+
+//         <Swiper
+//           slidesPerView={3}
+//           spaceBetween={30}
+//           onSlideChange={(swiper) => {
+//             setSlideEdge([swiper.isBeginning, swiper.isEnd])
+//           }}
+//           onInit={(swiper) => {
+//             setSwiperInstance(swiper)
+//             setSlideEdge([swiper.isBeginning, swiper.isEnd])
+//           }}
+//           breakpoints={{
+//             0: { slidesPerView: 1 },
+//             768: { slidesPerView: 2 },
+//             992: { slidesPerView: 3 },
+//           }}
+//         >
+//           {fetchedData.map((item, i) => (
+//             <SwiperSlide key={i}>
+//               <Post data={item} />
+//             </SwiperSlide>
+//           ))}
+//         </Swiper>
+//       </Row>
+//     </div>
+//   )
+// }
+
+// /*
+// Componente principal de la página de experiencia.
+// Maneja la obtención de datos, el contexto y el estado del lightbox.
+// */
+// const Experience = (props) => {
+//   const { data, ...otherProps } = props
+
+//   const initialState = {
+//     show: false,
+//     data: null,
+//   }
+
+//   const stateReducer = (state, action) => {
+//     switch (action.type) {
+//       case 'data':
+//         return { ...state, show: !!action.data, data: action.data || null }
+//       case 'show':
+//         return { ...state, show: action.show }
+//       default:
+//         return state
+//     }
+//   }
+
+//   const [state, dispatch] = useReducer(stateReducer, initialState)
+
+//   const contextData = {
+//     fetchedData: data,
+//     state,
+//     dispatch,
+//   }
+
+//   return (
+//     <SectionWrapper
+//       headerData={{
+//         title: 'My Experience',
+//         description: 'Check out my latest experiences and projects.',
+//       }}
+//       {...otherProps}
+//     >
+//       <Context.Provider value={contextData}>
+//         <PostsList />
+//         <Lightbox
+//           show={state.show}
+//           onClose={() => dispatch({ type: 'show', show: false })}
+//         >
+//           <Container>
+//             {state.data && (
+//               <MDXRemote
+//                 {...state.data.content}
+//                 components={{ LightboxThumbnail }}
+//               />
+//             )}
+//           </Container>
+//         </Lightbox>
+//       </Context.Provider>
+//     </SectionWrapper>
+//   )
+// }
+
+// export default Experience
+
+// export const getStaticProps = async () => {
+//   const experienceData = await fetchExperienceData()
+//   return {
+//     props: {
+//       data: experienceData,
+//     },
+//   }
+// }

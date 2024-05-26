@@ -175,3 +175,143 @@ const parseAllMdx = async (dir) => {
 }
 
 export default parseAllMdx
+
+// //////////////////////////////////////
+// import fs from 'fs'
+// import { serialize } from 'next-mdx-remote/serialize'
+// import { globby } from 'globby'
+// import sharp from 'sharp'
+// import matter from 'gray-matter'
+// import imageType from 'image-type'
+// import * as z from 'zod'
+
+// // Defines a schema for validating the frontmatter images field
+// export const frontmatterImagesFieldSchema = z.record(
+//   z.preprocess(
+//     (val) => (!Array.isArray(val) ? [val] : val),
+//     z.array(z.string()),
+//   ),
+// )
+
+// // Defines a schema for validating the augmented image object
+// export const augmentedImageSchema = z.object({
+//   url: z.string(),
+//   blurData: z.string(),
+//   metadata: z.object({
+//     width: z.union([z.number(), z.undefined()]),
+//     height: z.union([z.number(), z.undefined()]),
+//   }),
+// })
+
+// // Defines a schema for validating the entire frontmatter object
+// export const frontmatterSchema = z
+//   .object({
+//     images: frontmatterImagesFieldSchema.optional(),
+//     processedImages: z.record(z.array(augmentedImageSchema)).optional(),
+//   })
+//   .catchall(z.any())
+
+// // Function to convert an image to a blurred base64 string
+// const convertImageToBlurredBase64 = async (input) => {
+//   try {
+//     const imageBuffer = await sharp(input).resize({ width: 50 }).toBuffer()
+//     const mime = await imageType(imageBuffer)
+//     return `data:${mime?.mime};base64,${imageBuffer.toString('base64')}`
+//   } catch (err) {
+//     throw new Error(err.message)
+//   }
+// }
+
+// // Augments an image object with additional data (blurred Base64 version, width, height)
+// const augmentImageObj = async (obj) => {
+//   try {
+//     const promises = Object.keys(obj).map(async (key) => {
+//       const frontmatter = obj[key].map(async (img) => {
+//         const imgPath = `${process.cwd()}/public${img}`
+
+//         await sharp(imgPath).stats()
+
+//         fs.access(imgPath, fs.constants.F_OK, (err) => {
+//           if (err) {
+//             throw new Error(`${img} path does not exist.`)
+//           }
+//         })
+
+//         const { width, height } = await sharp(imgPath).metadata()
+
+//         const augmentedField = {
+//           url: img,
+//           blurData: await convertImageToBlurredBase64(imgPath),
+//           metadata: {
+//             width,
+//             height,
+//           },
+//         }
+
+//         return augmentedField
+//       })
+
+//       return {
+//         [key]: await Promise.all(frontmatter),
+//       }
+//     })
+
+//     return promises
+//   } catch (err) {
+//     throw new Error(err.message)
+//   }
+// }
+
+// // Parses all MDX files in a directory and compiles them to be displayed on-demand using MdxRenderer
+// const parseAllMdx = async (dir) => {
+//   try {
+//     const frontmatterBuilder = (frontmatter) =>
+//       frontmatterSchema
+//         .passthrough()
+//         .transform(async (fm) => {
+//           const fmProcessedImages = fm.images
+//             ? await Promise.all(await augmentImageObj(fm.images)).then(
+//                 (results) =>
+//                   results.reduce((acc, result) => {
+//                     const key = Object.keys(result)[0]
+//                     return { ...acc, [key]: result[key] }
+//                   }, {}),
+//               )
+//             : undefined
+
+//           return {
+//             ...fm,
+//             processedImages: fmProcessedImages,
+//           }
+//         })
+//         .parseAsync(frontmatter)
+
+//     const filePromises = await globby(`./${dir}`).then((fileList) =>
+//       fileList.map(async (file) =>
+//         fs.promises
+//           .readFile(file, {
+//             encoding: 'utf8',
+//           })
+//           .then(async (content) => {
+//             const frontmatter = matter(content).data
+//             const mdxSource = await serialize(content, {
+//               scope: {
+//                 frontmatter: await frontmatterBuilder(frontmatter),
+//               },
+//             })
+
+//             return {
+//               content: mdxSource,
+//               frontmatter: await frontmatterBuilder(frontmatter),
+//             }
+//           }),
+//       ),
+//     )
+
+//     return await Promise.all(filePromises)
+//   } catch (err) {
+//     throw new Error(err.message)
+//   }
+// }
+
+// export default parseAllMdx
