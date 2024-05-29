@@ -82,7 +82,6 @@ const Footer = (props) => {
           <SocialIcon url='#0' Icon={icons.LogoGitlab} color='#c34a49' />
           <SocialIcon url='#0' Icon={icons.LogoInstagram} color='#C32361' />
           <SocialIcon url='#0' Icon={icons.LogoLinkedin} color='#0077B5' />
-          {/* <SocialIcon url='#0' Icon={icons.Logo} color='#c33a38' /> */}
           <SocialIcon url='#0' Icon={icons.LogoGithub} color='#6e5494' />
           <SocialIcon url='#0' Icon={icons.LogoDiscord} color='#3B5998' />
         </Col>

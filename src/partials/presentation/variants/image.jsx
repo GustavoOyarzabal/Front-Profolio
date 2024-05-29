@@ -1,21 +1,15 @@
-/*
-Represents the background image used in the Hero section
-which is also exported to be used in other variants
-*/
-
+import React from 'react'
 import { ImageTemplate } from 'root/src/components/section-wrapper'
-import heroImg from 'root/public/partials/hero/background.jpg'
 
-const Image = () => (
+const ImageVariant = () => (
   <ImageTemplate
-    {...{
-      alt: 'Hero background',
-      src: heroImg,
-      brightness: '32%',
-      placeholder: 'blur',
-      priority: true,
-    }}
+    alt='Hero background'
+    src='https://res.cloudinary.com/dtwacyhiq/image/upload/v1716661323/lzsmkwi1pnw72gymezuy.png'
+    width={1920}
+    height={1080}
+    brightness='32%'
+    priority
   />
 )
 
-export default Image
+export default ImageVariant

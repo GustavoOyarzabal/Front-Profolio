@@ -29,11 +29,6 @@ const About = (props) => {
   }
 
   return (
-    // <SectionWrapper
-    //   css={styled.About}
-    //   headerData={{ title: 'About me', description: 'Get to know me' }}
-    //   {...props}
-    // >
     <SectionWrapper
       css={styled.About}
       headerData={{
@@ -44,14 +39,25 @@ const About = (props) => {
     >
       <div className='row align-items-center'>
         <Col xs='12' lg='5' className='_image'>
-          <Image
-            className='img-thumbnail'
-            sizes='(max-width: 992px) 250px, (min-width: 992px) 41.66vw'
-            alt='About Picture'
-            src={aboutData?.image || '/default-profile-image.jpg'}
-            width={250}
-            height={250}
-          />
+          {aboutData?.image ? (
+            <Image
+              className='img-thumbnail'
+              sizes='(max-width: 992px) 250px, (min-width: 992px) 41.66vw'
+              alt='About Picture'
+              src={aboutData.image}
+              width={250}
+              height={250}
+            />
+          ) : (
+            <Image
+              className='img-thumbnail'
+              sizes='(max-width: 992px) 250px, (min-width: 992px) 41.66vw'
+              alt='Default Picture'
+              src='https://res.cloudinary.com/dtwacyhiq/image/upload/v1716661323/lzsmkwi1pnw72gymezuy.png'
+              width={250}
+              height={250}
+            />
+          )}
         </Col>
         <Col xs='12' lg='7'>
           <h2 className='_subtitle'>

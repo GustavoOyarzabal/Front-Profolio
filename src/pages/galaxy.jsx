@@ -7,8 +7,8 @@ import Hero from 'root/src/partials/presentation'
 import About from 'root/src/partials/about'
 import Services from 'root/src/partials/services'
 import Hire from 'root/src/partials/hire'
-import Experience, { ExperienceDataPath } from 'root/src/partials/experience'
-import Formations, { FormationsDataPath } from 'root/src/partials/formations'
+import Experience from 'root/src/partials/experience'
+import Formations from 'root/src/partials/formations'
 
 import Contact from 'root/src/partials/form'
 import Footer from 'root/src/partials/footer'
@@ -46,7 +46,7 @@ Read more: https://nextjs.org/docs/pages/building-your-application/data-fetching
 */
 export const getStaticProps = async () => ({
   props: {
-    experienceData: await parseAllMdx(ExperienceDataPath),
-    formationsData: await parseAllMdx(FormationsDataPath),
+    experienceData: await parseAllMdx(Experience),
+    formationsData: await parseAllMdx(Formations),
   },
 })

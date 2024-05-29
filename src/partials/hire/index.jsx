@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import SectionWrapper from 'root/src/components/section-wrapper'
-import hireImg from 'root/public/partials/hire/background.jpg'
 import { Col, Row } from 'react-bootstrap'
 import Button from 'root/src/components/button'
 import { Link as ScrollLink } from 'react-scroll'
@@ -35,7 +34,7 @@ const Hire = (props) => {
       css={styled.Hire}
       backgroundProps={{
         alt: 'Hire background',
-        src: hireImg,
+        src: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1716661323/lzsmkwi1pnw72gymezuy.png',
         brightness: '17%',
       }}
       {...props}

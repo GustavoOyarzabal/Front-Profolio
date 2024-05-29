@@ -2,9 +2,8 @@ import { useState, useRef, useEffect } from 'react'
 import { css } from '@emotion/react'
 import videojs from 'video.js'
 import 'video.js/dist/video-js.css'
-import ImageVariant from './image'
 
-export const Video = () => {
+const VideoVariant = () => {
   const videoRef = useRef(null)
   const playerRef = useRef(null)
   const [videoLoaded, setVideoLoaded] = useState(false)
@@ -25,11 +24,12 @@ export const Video = () => {
       loop: true,
       sources: [
         {
-          src: 'publicpartialshero\video.mp4',
+          src: 'https://res.cloudinary.com/dtwacyhiq/video/upload/v1716929449/video_ecsvsv.mp4',
           type: 'video/mp4',
         },
       ],
     }
+
     if (!playerRef.current) {
       const videoElement = document.createElement('video')
       videoElement.classList.add('video-js')
@@ -55,34 +55,31 @@ export const Video = () => {
   }, [playerRef])
 
   return (
-    <>
-      <ImageVariant />
-      <div
-        css={css`
-          visibility: ${videoLoaded ? 'visible' : 'hidden'};
-          video {
-            object-fit: cover;
-            height: 100%;
-            width: 100%;
-            filter: brightness(40%);
-            position: absolute;
-            top: 0;
-            left: 0;
-          }
-          video-js {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            top: 0;
-            left: 0;
-          }
-        `}
-        data-vjs-player
-      >
-        <div ref={videoRef} />
-      </div>
-    </>
+    <div
+      css={css`
+        visibility: ${videoLoaded ? 'visible' : 'hidden'};
+        video {
+          object-fit: cover;
+          height: 100%;
+          width: 100%;
+          filter: brightness(40%);
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        .video-js {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          top: 0;
+          left: 0;
+        }
+      `}
+      data-vjs-player
+    >
+      <div ref={videoRef} />
+    </div>
   )
 }
 
-export default Video
+export default VideoVariant

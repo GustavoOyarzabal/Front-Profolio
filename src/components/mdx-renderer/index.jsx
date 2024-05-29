@@ -1,7 +1,3 @@
-/*
-MdxRenderer component that takes compiled MDX code and displays it in JSX
-*/
-
 import { MDXRemote } from 'next-mdx-remote'
 import { MDXProvider } from '@mdx-js/react'
 

@@ -1,16 +1,10 @@
-/*
-SectionWrapper represents a section with reasonable defaults that
-can enable various features such as displaying a background image
-or title and description
- */
-
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import Image from 'next/image'
 import { cx } from '@emotion/css'
 import styled from './style'
 
-// Shows the header of a section including a title and a description
+// Muestra el encabezado de una sección incluyendo un título y una descripción
 const SectionHeader = (props) => {
   const { title, description } = props
   return (
@@ -25,7 +19,7 @@ const SectionHeader = (props) => {
   )
 }
 
-// Used for showing an image background for sections
+// Usado para mostrar una imagen de fondo para las secciones
 export const ImageTemplate = (props) => {
   const { brightness = '100%', alt, ...otherProps } = props
   return (
@@ -42,11 +36,13 @@ export const ImageTemplate = (props) => {
       }}
       sizes='100vw'
       {...otherProps}
+      width={1920} // Añadir el ancho correcto
+      height={1080} // Añadir la altura correcta
     />
   )
 }
 
-// Shows a section with all its necessary features
+// Muestra una sección con todas sus características necesarias
 const SectionWrapper = (props) => {
   const {
     Root = 'section',
@@ -63,12 +59,12 @@ const SectionWrapper = (props) => {
     <Root
       css={styled.SectionWrapper}
       className={cx(className, {
-        '--alt-bg': altBg, // Uses an alternative background color if the altBg prop is passed
+        '--alt-bg': altBg, // Usa un color de fondo alternativo si se pasa el prop altBg
       })}
       ref={innerRef}
       {...otherProps}
     >
-      {/* Only display section header when headerData is passed */}
+      {/* Solo mostrar el encabezado de la sección cuando se pasa headerData */}
       {headerData != null && (
         <Container>
           <SectionHeader
@@ -78,7 +74,7 @@ const SectionWrapper = (props) => {
         </Container>
       )}
 
-      {/* Only display background image when backgroundProps is passed */}
+      {/* Solo mostrar la imagen de fondo cuando se pasa backgroundProps */}
       {backgroundProps != null && <ImageTemplate {...backgroundProps} />}
 
       <Container {...containerProps}>{children}</Container>
