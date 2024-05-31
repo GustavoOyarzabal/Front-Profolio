@@ -34,7 +34,7 @@ const Hire = (props) => {
       css={styled.Hire}
       backgroundProps={{
         alt: 'Hire background',
-        src: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1716661323/lzsmkwi1pnw72gymezuy.png',
+        src: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1717065682/matrixHirer_kaaz1y.webp',
         brightness: '17%',
       }}
       {...props}

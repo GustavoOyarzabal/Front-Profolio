@@ -11,7 +11,35 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        {/* Include the <head> content defined in _app.jsx */}
+        <link
+          rel='icon'
+          href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1717060764/tsLogobuenTamano_ptixpb.png'
+          type='image/x-icon'
+        />
+        <link
+          rel='icon'
+          href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1717060928/nestJSFavicon_twh5tb.jpg'
+          type='image/x-icon'
+        />
+        <link
+          rel='icon'
+          href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1717061262/nextJSlogoFaviconIcon_wqo7fx.png'
+          type='image/x-icon'
+        />
+        <link
+          rel='icon'
+          href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1717062256/nodeJSicongoodtamano_ltrohu.png'
+        />
+        <link
+          rel='icon'
+          href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1717061920/ReacticonFavicon_jktfgp.png'
+        />
+        <link
+          rel='icon'
+          href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1717061800/JsLogoiconfavion_tgakst.png'
+          type='image/x-icon'
+        />
+
         <HeadContent />
       </Head>
       <body>

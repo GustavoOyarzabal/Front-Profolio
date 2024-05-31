@@ -79,14 +79,34 @@ const Footer = (props) => {
       </Row>
       <Row className='_row _mini'>
         <Col xs='12' lg='5' className='_socials'>
-          <SocialIcon url='#0' Icon={icons.LogoGitlab} color='#c34a49' />
-          <SocialIcon url='#0' Icon={icons.LogoInstagram} color='#C32361' />
-          <SocialIcon url='#0' Icon={icons.LogoLinkedin} color='#0077B5' />
-          <SocialIcon url='#0' Icon={icons.LogoGithub} color='#6e5494' />
-          <SocialIcon url='#0' Icon={icons.LogoDiscord} color='#3B5998' />
+          <SocialIcon
+            url='https://git.alt-tools.tech/OyarzabalGustavo'
+            Icon={icons.LogoGitlab}
+            color='#c34a49'
+          />
+          <SocialIcon
+            url='www.linkedin.com/in/gustavooyarzabal'
+            Icon={icons.LogoInstagram}
+            color='#C32361'
+          />
+          <SocialIcon
+            url='www.linkedin.com/in/gustavooyarzabal'
+            Icon={icons.LogoLinkedin}
+            color='#0077B5'
+          />
+          <SocialIcon
+            url='https://github.com/GustavoOyarzabal'
+            Icon={icons.LogoGithub}
+            color='#6e5494'
+          />
+          <SocialIcon
+            url='Taguoy#4708'
+            Icon={icons.LogoDiscord}
+            color='#3B5998'
+          />
         </Col>
         <Col as='p' xs='12' lg='7' className='_copyright-notice'>
-          Developed by {footerData.developedBy}.
+          {footerData.developedBy}.
         </Col>
       </Row>
     </SectionWrapper>
