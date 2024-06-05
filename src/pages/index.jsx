@@ -9,6 +9,7 @@ import Contact from 'root/src/partials/form'
 import Footer from 'root/src/partials/footer'
 import Metadata from 'root/src/metadata'
 import { serialize } from 'next-mdx-remote/serialize'
+import { BackURL } from 'root/utils/back-conf.enum'
 
 const HomeVideo = ({ experienceData, formationsData }) => (
   <ScrollWrapper>
@@ -31,7 +32,7 @@ export const getStaticProps = async () => {
   let formationsData = []
 
   try {
-    const res = await fetch('http://localhost:3001/api/portfolios/experience')
+    const res = await fetch(`${BackURL.URL}api/portfolios/experience`)
     if (res.ok) {
       const data = await res.json()
       experienceData = await Promise.all(
@@ -45,7 +46,7 @@ export const getStaticProps = async () => {
     }
 
     const formationsRes = await fetch(
-      'http://localhost:3001/api/portfolios/formation',
+      `${BackURL.URL}api/portfolios/formation`,
     )
     if (formationsRes.ok) {
       const data = await formationsRes.json()
