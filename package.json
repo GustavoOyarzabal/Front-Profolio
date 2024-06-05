@@ -14,7 +14,8 @@
     "depcheck": "npx -y depcheck",
     "update": "npx -y npm-check-updates -i",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "export": "next export"
   },
   "dependencies": {
     "@emailjs/browser": "3.11.0",

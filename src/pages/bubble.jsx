@@ -16,7 +16,7 @@ import Footer from 'root/src/partials/footer'
 import parseAllMdx from 'root/src/lib/parseAllMdx'
 import Metadata from 'root/src/metadata'
 
-const HomeBubble = ({ ExperienceData, FormationsData }) => (
+const HomeBubble = ({ experienceData, formationsData }) => (
   /* Wrap all sections within a scroll-wrapper that adds a functional navbar/sidebar feature */
   <ScrollWrapper>
     {/* Include website metadata */}
