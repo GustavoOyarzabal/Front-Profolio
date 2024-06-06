@@ -94,7 +94,7 @@ const Presentation = (props) => {
             <span> {presentationData.skillLastName}</span>
           </h1>
           <h4 className='_headline'>
-            I&apos;m a <span id='typed' />
+            Je&apos;suis <span id='typed' />
           </h4>
         </Col>
         <MouseShape />
