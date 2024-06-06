@@ -20,7 +20,7 @@ const AddAbout = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await axios.post('http://localhost:3003/api/portfolios/about', formData)
+      await axios.post('http://localhost:3002/api/portfolios/about', formData)
       alert('Data added successfully')
     } catch (error) {
       console.error('Error adding data:', error)

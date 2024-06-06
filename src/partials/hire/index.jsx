@@ -17,7 +17,7 @@ const Hire = (props) => {
     const fetchHireData = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:3003/api/portfolios/hire',
+          'http://localhost:3002/api/portfolios/hire',
         )
         const hireResponse = response.data
         setHireData(hireResponse)
