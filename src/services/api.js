@@ -1,6 +1,8 @@
 import axios from 'axios';
-import { BackURL } from '../../utils/back-conf.enum.ts';
 
+const BackURL = {
+  URL: "https://gustavooyarzabal.com"
+};
 const API_URL = `${BackURL.URL}/api/portfolios`;
 
 const fetchAboutData = async () => {
