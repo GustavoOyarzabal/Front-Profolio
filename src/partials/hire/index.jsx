@@ -6,6 +6,12 @@ import Button from 'root/src/components/button'
 import { Link as ScrollLink } from 'react-scroll'
 import styled from './style'
 
+const BackURL = {
+  URL: "https://gustavooyarzabal.com"
+};
+
+const API_URL = `${BackURL.URL}/api/portfolios`;
+
 const Hire = (props) => {
   const [hireData, setHireData] = useState({
     goToWork: '',
@@ -16,9 +22,7 @@ const Hire = (props) => {
   useEffect(() => {
     const fetchHireData = async () => {
       try {
-        const response = await axios.get(
-          'http://localhost:3002/api/portfolios/hire',
-        )
+        const response = await axios.get(`${API_URL}/hire`)
         const hireResponse = response.data
         setHireData(hireResponse)
       } catch (error) {

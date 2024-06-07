@@ -9,6 +9,12 @@ import VideoVariant from './variants/video'
 import ParticlesVariant from './variants/particles'
 import styled from './style'
 
+const BackURL = {
+  URL: "https://gustavooyarzabal.com"
+};
+
+const API_URL = `${BackURL.URL}/api/portfolios`;
+
 const MouseShape = () => (
   <ScrollLink
     css={styled.MouseShape}
@@ -34,9 +40,7 @@ const Presentation = (props) => {
   useEffect(() => {
     const fetchPresentationData = async () => {
       try {
-        const response = await axios.get(
-          'http://localhost:3002/api/portfolios/presentation',
-        )
+        const response = await axios.get(`${API_URL}/presentation`)
         const presentationResponse = response.data
         setPresentationData(presentationResponse)
       } catch (error) {

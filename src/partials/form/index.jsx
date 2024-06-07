@@ -14,6 +14,13 @@ import SectionWrapper from 'root/src/components/section-wrapper'
 import Button from 'root/src/components/button'
 import styled from './style'
 
+const BackURL = {
+  URL: "https://gustavooyarzabal.com"
+};
+
+const API_URL = `${BackURL.URL}/api/portfolios`;
+
+
 // Define schema for EmailJS configuration
 export const emailjsParamsSchema = z.object({
   serviceId: z.string().min(1),
@@ -124,9 +131,7 @@ const Formulaire = (props) => {
   useEffect(() => {
     const fetchFormData = async () => {
       try {
-        const response = await axios.get(
-          'http://localhost:3002/api/portfolios/form',
-        ) // Asegúrate de que la URL del backend sea correcta
+        const response = await axios.get(`${API_URL}/form`) // Asegúrate de que la URL del backend sea correcta
         const formResponse = response.data // Assuming you're fetching the form entry
         setFormData(formResponse)
       } catch (error) {
