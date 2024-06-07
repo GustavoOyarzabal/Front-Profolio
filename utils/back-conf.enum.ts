@@ -1,3 +1,5 @@
-export enum BackURL {
-    URL = "https://gustavooyarzabal.com/"
-}
+const BackURL = {
+  URL: "https://gustavooyarzabal.com"
+};
+
+export default BackURL;
