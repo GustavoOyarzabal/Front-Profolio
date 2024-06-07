@@ -9,7 +9,10 @@ import Contact from 'root/src/partials/form'
 import Footer from 'root/src/partials/footer'
 import Metadata from 'root/src/metadata'
 import { serialize } from 'next-mdx-remote/serialize'
-import { BackURL } from 'root/utils/back-conf.enum'
+
+const BackURL = {
+  URL: "https://gustavooyarzabal.com"
+};
 
 const HomeVideo = ({ experienceData, formationsData }) => (
   <ScrollWrapper>
