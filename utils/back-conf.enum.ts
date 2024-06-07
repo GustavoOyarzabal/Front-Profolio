@@ -1,3 +1,3 @@
 export enum BackURL {
-    URL = "http://gustavooyarzabal.com/"
+    URL = "https://gustavooyarzabal.com/"
 }
