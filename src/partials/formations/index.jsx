@@ -1,44 +1,45 @@
-import { useContext, createContext, useReducer, useState } from 'react'
-import SectionWrapper from 'root/src/components/section-wrapper'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import Image from 'next/image'
-import 'swiper/css'
-import 'swiper/css/pagination'
-import { Card, Col, Row, Container } from 'react-bootstrap'
-import dayjs from 'dayjs'
-import Lightbox from 'root/src/components/lightbox'
-import classNames from 'classnames'
-import { MDXRemote } from 'next-mdx-remote'
-import styled from './style'
+import { useContext, createContext, useReducer, useState } from 'react';
+import SectionWrapper from 'root/src/components/section-wrapper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import Image from 'next/image';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Card, Col, Row, Container } from 'react-bootstrap';
+import dayjs from 'dayjs';
+import Lightbox from 'root/src/components/lightbox';
+import classNames from 'classnames';
+import { MDXRemote } from 'next-mdx-remote';
+import styled from './style';
+import { serialize } from 'next-mdx-remote/serialize';  // Importa serialize
 
 const capitalizeFirstLetter = (string) =>
-  string.charAt(0).toUpperCase() + string.slice(1)
+  string.charAt(0).toUpperCase() + string.slice(1);
 
-const Context = createContext({})
+const Context = createContext({});
 
 const Post = ({ data }) => {
-  const { dispatch } = useContext(Context)
+  const { dispatch } = useContext(Context);
 
   const clickEvent = () => {
-    dispatch({ type: 'data', data })
-  }
+    dispatch({ type: 'data', data });
+  };
 
-  const { title, date, tags, summary, thumbnail } = data
+  const { title, date, tags, summary, thumbnail } = data;
 
   const tagsToText = (array) => {
-    const treatedArray = array.map((element) => capitalizeFirstLetter(element))
+    const treatedArray = array.map((element) => capitalizeFirstLetter(element));
     if (treatedArray.length === 1)
-      return <a className='link'>{treatedArray[0]}</a>
+      return <a className='link'>{treatedArray[0]}</a>;
     return treatedArray.reduce((prev, curr) => (
       <>
         <span className='_tag'>{prev}</span>
         <span className='_delimiter'>/</span>
         <span className='_tag'>{curr}</span>
       </>
-    ))
-  }
+    ));
+  };
 
-  const dateToText = (dateInput) => dayjs(dateInput).format('MMMM D, YYYY')
+  const dateToText = (dateInput) => dayjs(dateInput).format('MMMM D, YYYY');
 
   return (
     <Card css={styled.Post}>
@@ -64,27 +65,27 @@ const Post = ({ data }) => {
         </div>
       </Card.Body>
     </Card>
-  )
-}
+  );
+};
 
 const PostsList = () => {
-  const { fetchedData } = useContext(Context)
-  const [swiperInstance, setSwiperInstance] = useState(null)
-  const [slideEdge, setSlideEdge] = useState([null, null])
+  const { fetchedData } = useContext(Context);
+  const [swiperInstance, setSwiperInstance] = useState(null);
+  const [slideEdge, setSlideEdge] = useState([null, null]);
 
   const handleNav = (action) => {
-    if (!swiperInstance) return
+    if (!swiperInstance) return;
     switch (action) {
       case 'PREV':
-        swiperInstance.slidePrev()
-        break
+        swiperInstance.slidePrev();
+        break;
       case 'NEXT':
-        swiperInstance.slideNext()
-        break
+        swiperInstance.slideNext();
+        break;
       default:
-        break
+        break;
     }
-  }
+  };
 
   return (
     <div css={styled.PostsList}>
@@ -110,8 +111,8 @@ const PostsList = () => {
             setSlideEdge([swiper.isBeginning, swiper.isEnd])
           }
           onInit={(swiper) => {
-            setSwiperInstance(swiper)
-            setSlideEdge([swiper.isBeginning, swiper.isEnd])
+            setSwiperInstance(swiper);
+            setSlideEdge([swiper.isBeginning, swiper.isEnd]);
           }}
           breakpoints={{
             0: { slidesPerView: 1 },
@@ -127,33 +128,33 @@ const PostsList = () => {
         </Swiper>
       </Row>
     </div>
-  )
-}
+  );
+};
 
 const Formation = (props) => {
-  const { data, ...otherProps } = props
+  const { data, ...otherProps } = props;
   const initialState = {
     show: false,
     data: null,
-  }
+  };
 
   const stateReducer = (state, action) => {
     switch (action.type) {
       case 'data':
-        return { ...state, show: !!action.data, data: action.data || null }
+        return { ...state, show: !!action.data, data: action.data || null };
       case 'show':
-        return { ...state, show: action.show }
+        return { ...state, show: action.show };
       default:
-        return state
+        return state;
     }
-  }
+  };
 
-  const [state, dispatch] = useReducer(stateReducer, initialState)
+  const [state, dispatch] = useReducer(stateReducer, initialState);
   const contextData = {
     fetchedData: data,
     state,
     dispatch,
-  }
+  };
 
   return (
     <SectionWrapper
@@ -173,13 +174,13 @@ const Formation = (props) => {
         </Col>
       </Row>
     </SectionWrapper>
-  )
-}
+  );
+};
 
 const PostLightboxLayout = (props) => {
-  const { state } = useContext(Context)
-  const { title, summary } = state.data || {}
-  const { children } = props
+  const { state } = useContext(Context);
+  const { title, summary } = state.data || {};
+  const { children } = props;
 
   return (
     <Row css={styled.PostLightboxLayout} className='justify-content-center'>
@@ -191,15 +192,15 @@ const PostLightboxLayout = (props) => {
         </div>
       </Col>
     </Row>
-  )
-}
+  );
+};
 
 const PostLightbox = () => {
-  const { state, dispatch } = useContext(Context)
+  const { state, dispatch } = useContext(Context);
 
   const components = {
     PostLightboxLayout,
-  }
+  };
 
   return (
     <Lightbox
@@ -213,7 +214,34 @@ const PostLightbox = () => {
         )}
       </Container>
     </Lightbox>
-  )
-}
+  );
+};
 
-export default Formation
+export default Formation;
+
+export const getStaticProps = async () => {
+  let formationsData = [];
+
+  try {
+    const res = await fetch('https://gustavooyarzabal.com/api/portfolios/formation');
+    if (res.ok) {
+      const data = await res.json();
+      formationsData = await Promise.all(
+        data.map(async (item) => ({
+          ...item,
+          content: await serialize(item.content),
+        }))
+      );
+    } else {
+      console.error('Error fetching formations data:', res.statusText);
+    }
+  } catch (error) {
+    console.error('Fetch error:', error);
+  }
+
+  return {
+    props: {
+      data: formationsData,
+    },
+  };
+};
