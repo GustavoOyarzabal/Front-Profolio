@@ -141,6 +141,7 @@ const PostsList = () => {
 
 const Formation = (props) => {
   const { data, ...otherProps } = props;
+  console.log('Formations data in component:', data); // Añadir un log para verificar los datos
   const initialState = {
     show: false,
     data: null,
@@ -237,6 +238,7 @@ export const getStaticProps = async () => {
     const res = await fetch(`${BackURL.URL}/api/portfolios/formation`);
     if (res.ok) {
       const data = await res.json();
+      console.log('Formations data fetched:', data); // Añadir un log para verificar los datos
       formationsData = await Promise.all(
         data.map(async (item) => ({
           ...item,
