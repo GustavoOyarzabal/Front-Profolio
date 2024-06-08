@@ -41,8 +41,10 @@ const Presentation = (props) => {
     const fetchPresentationData = async () => {
       try {
         const response = await axios.get(`${API_URL}/presentation`);
-        const presentationResponse = response.data[0]; // Assuming it returns an array
-        setPresentationData(presentationResponse);
+        const presentationResponse = response.data[0]; // Asegúrate de que response.data[0] exista
+        if (presentationResponse) {
+          setPresentationData(presentationResponse);
+        }
       } catch (error) {
         console.error('Error fetching presentation data:', error);
       }
@@ -67,19 +69,6 @@ const Presentation = (props) => {
     };
   }, [presentationData.skillHeadline]);
 
-  const setVariant = () => {
-    switch (variant) {
-      case 'image':
-        return <ImageVariant />;
-      case 'video':
-        return <VideoVariant />;
-      case 'particles':
-        return <ParticlesVariant preset={props.preset} />;
-      default:
-        return <ImageVariant />;
-    }
-  };
-
   return (
     <SectionWrapper
       css={styled.Hero}
@@ -87,7 +76,9 @@ const Presentation = (props) => {
       style={{ position: 'relative' }}
       {...otherProps}
     >
-      {setVariant()}
+      {variant === 'image' && <ImageVariant />}
+      {variant === 'video' && <VideoVariant />}
+      {variant === 'particles' && <ParticlesVariant preset={props.preset} />}
       <Row
         style={{ position: 'relative', zIndex: 1 }}
         className='align-items-center justify-content-center h-100'
@@ -109,16 +100,16 @@ const Presentation = (props) => {
 
 export default Presentation;
 
-// import React, { useEffect, useState } from 'react'
-// import axios from 'axios'
-// import { Row, Col } from 'react-bootstrap'
-// import Typed from 'typed.js'
-// import SectionWrapper from 'root/src/components/section-wrapper'
-// import { Link as ScrollLink } from 'react-scroll'
-// import ImageVariant from './variants/image'
-// import VideoVariant from './variants/video'
-// import ParticlesVariant from './variants/particles'
-// import styled from './style'
+// import React, { useEffect, useState } from 'react';
+// import axios from 'axios';
+// import { Row, Col } from 'react-bootstrap';
+// import Typed from 'typed.js';
+// import SectionWrapper from 'root/src/components/section-wrapper';
+// import { Link as ScrollLink } from 'react-scroll';
+// import ImageVariant from './variants/image';
+// import VideoVariant from './variants/video';
+// import ParticlesVariant from './variants/particles';
+// import styled from './style';
 
 // const BackURL = {
 //   URL: "https://gustavooyarzabal.com"
@@ -138,29 +129,29 @@ export default Presentation;
 //       <div className='_wheel' />
 //     </div>
 //   </ScrollLink>
-// )
+// );
 
 // const Presentation = (props) => {
-//   const { variant, ...otherProps } = props
+//   const { variant, ...otherProps } = props;
 //   const [presentationData, setPresentationData] = useState({
 //     skillName: 'Developer',
 //     skillLastName: '',
 //     skillHeadline: '',
-//   })
+//   });
 
 //   useEffect(() => {
 //     const fetchPresentationData = async () => {
 //       try {
-//         const response = await axios.get(`${API_URL}/presentation`)
-//         const presentationResponse = response.data
-//         setPresentationData(presentationResponse)
+//         const response = await axios.get(`${API_URL}/presentation`);
+//         const presentationResponse = response.data[0]; // Assuming it returns an array
+//         setPresentationData(presentationResponse);
 //       } catch (error) {
-//         console.error('Error fetching presentation data:', error)
+//         console.error('Error fetching presentation data:', error);
 //       }
-//     }
+//     };
 
-//     fetchPresentationData()
-//   }, [])
+//     fetchPresentationData();
+//   }, []);
 
 //   useEffect(() => {
 //     const options = {
@@ -170,26 +161,26 @@ export default Presentation;
 //       loop: true,
 //       smartBackspace: false,
 //       backDelay: 2000,
-//     }
+//     };
 
-//     const typed = new Typed('#typed', options)
+//     const typed = new Typed('#typed', options);
 //     return () => {
-//       typed.destroy()
-//     }
-//   }, [presentationData.skillHeadline])
+//       typed.destroy();
+//     };
+//   }, [presentationData.skillHeadline]);
 
 //   const setVariant = () => {
 //     switch (variant) {
 //       case 'image':
-//         return <ImageVariant />
+//         return <ImageVariant />;
 //       case 'video':
-//         return <VideoVariant />
+//         return <VideoVariant />;
 //       case 'particles':
-//         return <ParticlesVariant preset={props.preset} />
+//         return <ParticlesVariant preset={props.preset} />;
 //       default:
-//         return <ImageVariant />
+//         return <ImageVariant />;
 //     }
-//   }
+//   };
 
 //   return (
 //     <SectionWrapper
@@ -215,7 +206,7 @@ export default Presentation;
 //         <MouseShape />
 //       </Row>
 //     </SectionWrapper>
-//   )
-// }
+//   );
+// };
 
-// export default Presentation
+// export default Presentation;
