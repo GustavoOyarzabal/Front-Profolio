@@ -41,11 +41,12 @@ const Presentation = (props) => {
     const fetchPresentationData = async () => {
       try {
         const response = await axios.get(`${API_URL}/presentation`);
-        const presentationResponse = response.data[0];
+        console.log("Raw response data: ", response.data);
+        const presentationResponse = response.data[0]; // o response.data dependiendo de la estructura
         console.log("Fetched presentation data: ", presentationResponse);
         if (presentationResponse) {
           setPresentationData(presentationResponse);
-          console.log("Presentation data set: ", presentationData);
+          console.log("Presentation data set: ", presentationResponse);
         }
       } catch (error) {
         console.error('Error fetching presentation data:', error);
