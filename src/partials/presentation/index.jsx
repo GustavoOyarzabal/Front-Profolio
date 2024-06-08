@@ -41,10 +41,11 @@ const Presentation = (props) => {
     const fetchPresentationData = async () => {
       try {
         const response = await axios.get(`${API_URL}/presentation`);
-        const presentationResponse = response.data[0]; // Asegúrate de que response.data[0] exista
+        const presentationResponse = response.data[0];
         console.log("Fetched presentation data: ", presentationResponse);
         if (presentationResponse) {
           setPresentationData(presentationResponse);
+          console.log("Presentation data set: ", presentationData);
         }
       } catch (error) {
         console.error('Error fetching presentation data:', error);
@@ -56,6 +57,7 @@ const Presentation = (props) => {
 
 
   useEffect(() => {
+    console.log("Typed.js initialized with headline: ", presentationData.skillHeadline);
     const options = {
       strings: [presentationData.skillHeadline || 'Developer'],
       typeSpeed: 40,
