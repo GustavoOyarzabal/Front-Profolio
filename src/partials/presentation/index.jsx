@@ -42,6 +42,7 @@ const Presentation = (props) => {
       try {
         const response = await axios.get(`${API_URL}/presentation`);
         const presentationResponse = response.data[0]; // Asegúrate de que response.data[0] exista
+        console.log("Fetched presentation data: ", presentationResponse);
         if (presentationResponse) {
           setPresentationData(presentationResponse);
         }
@@ -52,6 +53,7 @@ const Presentation = (props) => {
 
     fetchPresentationData();
   }, []);
+
 
   useEffect(() => {
     const options = {
