@@ -28,7 +28,7 @@ const Post = ({ data }) => {
     dispatch({ type: 'data', data });
   };
 
-  const { title, date, tags, summary, thumbnail, content } = data;
+  const { title, date, tags, summary, thumbnail } = data;
 
   const tagsToText = (array) => {
     const treatedArray = array.map((element) => capitalizeFirstLetter(element));
