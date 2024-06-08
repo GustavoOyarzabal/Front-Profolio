@@ -9,8 +9,8 @@ import dayjs from 'dayjs';
 import Lightbox from 'root/src/components/lightbox';
 import classNames from 'classnames';
 import MdxRenderer from 'root/src/components/mdx-renderer';
+import { serialize } from 'next-mdx-remote/serialize';
 import styled from './style';
-import { serialize } from 'next-mdx-remote/serialize';  // Importa serialize
 
 const BackURL = {
   URL: "https://gustavooyarzabal.com"
