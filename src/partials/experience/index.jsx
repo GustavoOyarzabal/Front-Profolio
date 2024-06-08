@@ -9,9 +9,8 @@ import dayjs from 'dayjs';
 import Lightbox from 'root/src/components/lightbox';
 import classNames from 'classnames';
 import MdxRenderer from 'root/src/components/mdx-renderer';
-import { serialize } from 'next-mdx-remote/serialize';
-
 import styled from './style';
+import { serialize } from 'next-mdx-remote/serialize';  // Importa serialize
 
 const BackURL = {
   URL: "https://gustavooyarzabal.com"
@@ -29,7 +28,7 @@ const Post = ({ data }) => {
     dispatch({ type: 'data', data });
   };
 
-  const { title, date, tags, summary, thumbnail } = data;
+  const { title, date, tags, summary, thumbnail, content } = data;
 
   const tagsToText = (array) => {
     const treatedArray = array.map((element) => capitalizeFirstLetter(element));
@@ -49,14 +48,18 @@ const Post = ({ data }) => {
   return (
     <Card css={styled.Post}>
       <span onClick={clickEvent} className='_image-wrapper'>
-        <Image
-          className='card-img-top'
-          style={{ width: '100%', objectFit: 'cover' }}
-          src={thumbnail.url}
-          alt='experience post thumbnail'
-          width={250}
-          height={250}
-        />
+        {thumbnail && thumbnail.url ? (
+          <Image
+            className='card-img-top'
+            style={{ width: '100%', objectFit: 'cover' }}
+            src={thumbnail.url}
+            alt='experience post thumbnail'
+            width={250}
+            height={250}
+          />
+        ) : (
+          <div>No Thumbnail Available</div>
+        )}
         <span className='_date'>{dateToText(date)}</span>
       </span>
       <Card.Body className='_content'>

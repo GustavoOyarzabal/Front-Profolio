@@ -9,8 +9,9 @@ import dayjs from 'dayjs';
 import Lightbox from 'root/src/components/lightbox';
 import classNames from 'classnames';
 import { MDXRemote } from 'next-mdx-remote';
-import styled from './style';
 import { serialize } from 'next-mdx-remote/serialize';  // Importa serialize
+
+import styled from './style';
 
 const capitalizeFirstLetter = (string) =>
   string.charAt(0).toUpperCase() + string.slice(1);
