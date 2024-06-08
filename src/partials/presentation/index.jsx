@@ -42,8 +42,7 @@ const Presentation = (props) => {
       try {
         const response = await axios.get(`${API_URL}/presentation`);
         console.log("Raw response data: ", response.data);
-        const presentationResponse = response.data[0]; // o response.data dependiendo de la estructura
-        console.log("Fetched presentation data: ", presentationResponse);
+        const presentationResponse = response.data; //
         if (presentationResponse) {
           setPresentationData(presentationResponse);
           console.log("Presentation data set: ", presentationResponse);
@@ -55,7 +54,6 @@ const Presentation = (props) => {
 
     fetchPresentationData();
   }, []);
-
 
   useEffect(() => {
     console.log("Typed.js initialized with headline: ", presentationData.skillHeadline);
