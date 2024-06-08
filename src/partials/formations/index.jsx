@@ -8,10 +8,13 @@ import { Card, Col, Row, Container } from 'react-bootstrap';
 import dayjs from 'dayjs';
 import Lightbox from 'root/src/components/lightbox';
 import classNames from 'classnames';
-import { MDXRemote } from 'next-mdx-remote';
-import { serialize } from 'next-mdx-remote/serialize';  // Importa serialize
-
+import MdxRenderer from 'root/src/components/mdx-renderer';
+import { serialize } from 'next-mdx-remote/serialize';
 import styled from './style';
+
+const BackURL = {
+  URL: "https://gustavooyarzabal.com"
+};
 
 const capitalizeFirstLetter = (string) =>
   string.charAt(0).toUpperCase() + string.slice(1);
@@ -45,14 +48,18 @@ const Post = ({ data }) => {
   return (
     <Card css={styled.Post}>
       <span onClick={clickEvent} className='_image-wrapper'>
-        <Image
-          className='card-img-top'
-          style={{ width: '100%', objectFit: 'cover' }}
-          src={thumbnail.url}
-          alt='formation post thumbnail'
-          width={250}
-          height={250}
-        />
+        {thumbnail && thumbnail.url ? (
+          <Image
+            className='card-img-top'
+            style={{ width: '100%', objectFit: 'cover' }}
+            src={thumbnail.url}
+            alt='formation post thumbnail'
+            width={250}
+            height={250}
+          />
+        ) : (
+          <div>No Thumbnail Available</div>
+        )}
         <span className='_date'>{dateToText(date)}</span>
       </span>
       <Card.Body className='_content'>
@@ -211,7 +218,10 @@ const PostLightbox = () => {
     >
       <Container>
         {state.data && (
-          <MDXRemote {...state.data.content} components={components} />
+          <MdxRenderer
+            serializedSource={state.data.content}
+            components={components}
+          />
         )}
       </Container>
     </Lightbox>
@@ -224,7 +234,7 @@ export const getStaticProps = async () => {
   let formationsData = [];
 
   try {
-    const res = await fetch('https://gustavooyarzabal.com/api/portfolios/formation');
+    const res = await fetch(`${BackURL.URL}/api/portfolios/formation`);
     if (res.ok) {
       const data = await res.json();
       formationsData = await Promise.all(
