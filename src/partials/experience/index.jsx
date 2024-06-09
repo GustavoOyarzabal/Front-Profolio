@@ -81,7 +81,6 @@ const PostsList = () => {
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [slideEdge, setSlideEdge] = useState([null, null]);
 
-  // Agregar log para verificar fetchedData
   console.log('Fetched Data in PostsList:', fetchedData);
 
   const handleNav = (action) => {
@@ -246,7 +245,7 @@ export const getStaticProps = async () => {
           content: await serialize(item.content),
         }))
       );
-      console.log('Fetched experience data:', experienceData); // Agrega este log para depuración
+      console.log('Fetched experience data:', experienceData);
     } else {
       console.error('Error fetching experience data:', res.statusText);
     }
