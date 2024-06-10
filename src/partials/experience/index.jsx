@@ -169,7 +169,7 @@ const Experience = (props) => {
   return (
     <SectionWrapper
       headerData={{
-        title: 'Experience',
+        title: 'Experiences',
         description: 'Mes expériences les plus pertinentes',
       }}
       altBg={false}
