@@ -9,7 +9,6 @@ import { Link as ScrollLink } from 'react-scroll'
 import styled from './style'
 
 const ScrollWrapper = ({ children }) => {
-  // Count number of children (sections)
   const childrenLength = Children.count(children)
 
   // Create refs for each section
@@ -21,13 +20,11 @@ const ScrollWrapper = ({ children }) => {
     [childrenLength],
   )
 
-  // Populate nav links and sections
   const populate = {
     menuNav: [],
     sections: [],
   }
 
-  // Map over children
   React.Children.map(children, (child, i) => {
     // Get child props
     const childProps = child.props
@@ -40,7 +37,6 @@ const ScrollWrapper = ({ children }) => {
       }),
     )
 
-    // Add nav link if nav prop exists
     if (childProps.nav != null) {
       populate.menuNav.push(
         <ScrollLink
@@ -58,7 +54,6 @@ const ScrollWrapper = ({ children }) => {
     }
   })
 
-  // Return nav and sections
   return (
     <div css={styled.ScrollWrapper}>
       <Nav>{populate.menuNav}</Nav>

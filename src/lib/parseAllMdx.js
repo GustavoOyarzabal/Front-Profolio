@@ -4,22 +4,18 @@ import { globby } from 'globby';
 import matter from 'gray-matter';
 
 const parseAllMdx = async (dir) => {
-  // Check if we're running on the server
   if (typeof window !== 'undefined') {
     return [];
   }
 
-  // Ensure the directory path is not too long
   if (dir.length > 255) {
     throw new Error('Directory path is too long');
   }
 
-  // Server-side code here
   try {
     console.log(`Parsing MDX files in directory: ${dir}`);
     const fileList = await globby(`./${dir}`);
-    
-    // Ensure none of the file paths are too long
+
     fileList.forEach(file => {
       if (file.length > 255) {
         throw new Error(`File path is too long: ${file}`);

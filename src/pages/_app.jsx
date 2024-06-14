@@ -12,7 +12,6 @@ import { useState, useEffect } from 'react'
 import { css, Global } from '@emotion/react'
 import Preloader from '../components/preloader'
 
-// Defines elements to be included in the <head>
 export const HeadContent = () => (
   <>
     {/* Google Fonts */}
@@ -29,7 +28,6 @@ export const HeadContent = () => (
   </>
 )
 
-// Defines the main component used for _app.jsx
 const MyApp = ({ Component, pageProps }) => {
   const [loading, setLoading] = useState(true)
   useEffect(() => {
@@ -39,7 +37,6 @@ const MyApp = ({ Component, pageProps }) => {
   }, [])
   return (
     <>
-      {/* Displays a preloader when the page is still loading */}
       <Preloader
         loading={loading}
         dotsStyle={css`

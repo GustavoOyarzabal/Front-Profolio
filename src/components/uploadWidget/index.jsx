@@ -19,7 +19,7 @@ const UploadWidget = () => {
           if (result.event === 'success') {
             const imageUrl = result.info.secure_url
             console.log('Image URL:', imageUrl)
-            // aca manejo la URL de la imagen, como guardarla en labase de datos
+            //URL de la imagen
             saveImageUrl(imageUrl)
           }
         }
@@ -39,7 +39,7 @@ const UploadWidget = () => {
   return (
     <button
       onClick={showWidget}
-      style={{ display: 'none' }} // tengo que hacer esto para ocultar el nuevo espacio que se genera cuando agrego este componente
+      style={{ display: 'none' }}
     >
       Upload Image
     </button>

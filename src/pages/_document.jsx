@@ -49,31 +49,3 @@ export default function Document() {
     </Html>
   )
 }
-/*
-// _document.jsx is a special Next.js file that serves as the entry point for the application
-// It is responsible for initializing the pages
-// Read more: https://nextjs.org/docs/pages/building-your-application/routing/custom-document
-// */
-
-// import { Html, Head, Main, NextScript } from 'next/document'
-// import { HeadContent } from './_app'
-
-// export default function Document() {
-//   return (
-//     <Html>
-//       <Head>
-//         <HeadContent />
-//         <script
-//           src='https://widget.cloudinary.com/v2.0/global/all.js'
-//           type='text/javascript'
-//           async
-//           defer
-//         ></script>
-//       </Head>
-//       <body>
-//         <Main />
-//         <NextScript />
-//       </body>
-//     </Html>
-//   )
-// }

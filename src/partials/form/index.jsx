@@ -34,9 +34,9 @@ Make sure the values are replaced with your own EmailJS credentials.
 Read the documentation for more information
 */
 const emailjsParams = {
-  serviceId: 'your_service_id',
-  templateId: 'your_template_id',
-  publicKey: 'your_public_key',
+  serviceId: 'service_176taqd',
+  templateId: 'template_fgw01jc',
+  publicKey: 'OwrvUNLmkQQNAf7Oo',
 }
 
 // Define initial state
@@ -131,8 +131,8 @@ const Formulaire = (props) => {
   useEffect(() => {
     const fetchFormData = async () => {
       try {
-        const response = await axios.get(`${API_URL}/form`) // Asegúrate de que la URL del backend sea correcta
-        const formResponse = response.data // Assuming you're fetching the form entry
+        const response = await axios.get(`${API_URL}/form`)
+        const formResponse = response.data
         setFormData(formResponse)
       } catch (error) {
         console.error('Error fetching form data:', error)

@@ -2,7 +2,6 @@ import { MDXRemote } from 'next-mdx-remote'
 import { MDXProvider } from '@mdx-js/react'
 
 const MdxRenderer = (props) => {
-  // Destructure props
   const { frontmatter, compiledSource, scope } = props.serializedSource
   return (
     <MDXProvider components={props.components}>

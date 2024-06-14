@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { cx } from '@emotion/css'
 import styled from './style'
 
-// Muestra el encabezado de una sección incluyendo un título y una descripción
 const SectionHeader = (props) => {
   const { title, description } = props
   return (
@@ -19,7 +18,6 @@ const SectionHeader = (props) => {
   )
 }
 
-// Usado para mostrar una imagen de fondo para las secciones
 export const ImageTemplate = (props) => {
   const { brightness = '100%', alt, ...otherProps } = props
   return (
@@ -36,13 +34,12 @@ export const ImageTemplate = (props) => {
       }}
       sizes='100vw'
       {...otherProps}
-      width={1920} // Añadir el ancho correcto
-      height={1080} // Añadir la altura correcta
+      width={1920}
+      height={1080}
     />
   )
 }
 
-// Muestra una sección con todas sus características necesarias
 const SectionWrapper = (props) => {
   const {
     Root = 'section',
@@ -59,12 +56,11 @@ const SectionWrapper = (props) => {
     <Root
       css={styled.SectionWrapper}
       className={cx(className, {
-        '--alt-bg': altBg, // Usa un color de fondo alternativo si se pasa el prop altBg
+        '--alt-bg': altBg,
       })}
       ref={innerRef}
       {...otherProps}
     >
-      {/* Solo mostrar el encabezado de la sección cuando se pasa headerData */}
       {headerData != null && (
         <Container>
           <SectionHeader
@@ -74,7 +70,6 @@ const SectionWrapper = (props) => {
         </Container>
       )}
 
-      {/* Solo mostrar la imagen de fondo cuando se pasa backgroundProps */}
       {backgroundProps != null && <ImageTemplate {...backgroundProps} />}
 
       <Container {...containerProps}>{children}</Container>
