@@ -1,4 +1,3 @@
-// Metadata.js
 import Head from 'next/head'
 
 const Metadata = () => (
