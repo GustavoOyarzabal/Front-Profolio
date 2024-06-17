@@ -8,7 +8,7 @@ const Metadata = () => (
 
     {/* Open Graph Meta Tags */}
     <meta property='og:title' content='Gustavo Oyarzabal' />
-    <meta property='og:description' content='Developpeur Web' />
+    <meta property='og:description' content='Developpeur FullStack' />
     <meta property='og:image' content='https://res.cloudinary.com/dtwacyhiq/image/upload/v1718648254/icono_miniatura_portfolio_dos_czzjqe.webp' />
     <meta property='og:url' content='https://www.gustavooyarzabal.com' />
     <meta property='og:type' content='website' />
@@ -16,7 +16,7 @@ const Metadata = () => (
     {/* Twitter Meta Tags */}
     <meta name='twitter:card' content='summary_large_image' />
     <meta name='twitter:title' content='Gustavo Oyarzabal' />
-    <meta name='twitter:description' content='Developpeur Web' />
+    <meta name='twitter:description' content='Developpeur FullStack' />
     <meta name='twitter:image' content='https://res.cloudinary.com/dtwacyhiq/image/upload/v1718648254/icono_miniatura_portfolio_dos_czzjqe.webp' />
 
     {/* Favicon and Apple Touch Icon */}
