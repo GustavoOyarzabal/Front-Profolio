@@ -1,9 +1,4 @@
-/*
-_document.jsx is a special Next.js file that serves as the entry point for the application
-It is responsible for initializing the pages
-Read more: https://nextjs.org/docs/pages/building-your-application/routing/custom-document
-*/
-
+// _document.jsx
 import { Html, Head, Main, NextScript } from 'next/document'
 import { HeadContent } from './_app'
 
@@ -11,6 +6,16 @@ export default function Document() {
   return (
     <Html>
       <Head>
+        <link
+          rel='icon'
+          href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1718644385/icono_miniatura_portfolio_pd2ot8.webp'
+          type='image/x-icon'
+        />
+        <link
+          rel='apple-touch-icon'
+          href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1718644385/icono_miniatura_portfolio_pd2ot8.webp'
+          sizes='180x180'
+        />
         <link
           rel='icon'
           href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1717060764/tsLogobuenTamano_ptixpb.png'

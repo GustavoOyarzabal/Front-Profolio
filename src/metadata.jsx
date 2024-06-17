@@ -1,13 +1,10 @@
-/*
-This file defines the website metadata tags
-*/
-
+// Metadata.js
 import Head from 'next/head'
 
 const Metadata = () => (
   <Head>
-    <title>Gustavo Oyarzabal</title>
-    <meta name='description' content='Developpeur Web' />
+    <title>Developpeur Full-Stack</title>
+    <meta name='description' content='Gustavo Oyarzabal' />
     <meta name='viewport' content='width=device-width, initial-scale=1' />
 
     {/* Open Graph Meta Tags */}
