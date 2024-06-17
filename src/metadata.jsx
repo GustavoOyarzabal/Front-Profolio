@@ -11,7 +11,7 @@ const Metadata = () => (
     <meta property='og:title' content='Gustavo Oyarzabal' />
     <meta property='og:description' content='Developpeur Web' />
     <meta property='og:image' content='https://res.cloudinary.com/dtwacyhiq/image/upload/v1718644385/icono_miniatura_portfolio_pd2ot8.webp' />
-    <meta property='og:url' content='https://yourwebsite.com' />
+    <meta property='og:url' content='https://www.gustavooyarzabal.com' />
     <meta property='og:type' content='website' />
 
     {/* Twitter Meta Tags */}
