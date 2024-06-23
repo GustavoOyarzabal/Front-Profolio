@@ -8,7 +8,7 @@ export default function Document() {
       <Head>
       <link
           rel='icon'
-          href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1719141687/logo_portfolio_GG_woytbb_ugdfme.jpg'
+          href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1719146148/logo_portfolio_GG_woytbb_ugdfme_hbpoo9.png'
           type='image/x-icon'
         />
         {/* <link
