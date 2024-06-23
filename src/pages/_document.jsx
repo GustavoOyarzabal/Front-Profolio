@@ -13,11 +13,6 @@ export default function Document() {
         />
         <link
           rel='icon'
-          href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1719141687/logo_portfolio_GG_woytbb_ugdfme.ico'
-          type='image/x-icon'
-        />
-        <link
-          rel='icon'
           href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1719141687/logo_portfolio_GG_woytbb_ugdfme.png'
           type='image/png'
         />
