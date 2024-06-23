@@ -41,7 +41,7 @@ const About = (props) => {
   const cvUrl =
     aboutData?.downloadCv && aboutData.downloadCv.startsWith('http')
       ? aboutData.downloadCv
-      : 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1718040843/Gustavo_Oyarzabal_uptbms.jpg'
+      : 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1719134687/Gustavo_Oyarzabal_CV_du0kdx.jpg'
 
   const imageUrl =
     aboutData?.image && aboutData.image.startsWith('http')
@@ -112,7 +112,7 @@ const About = (props) => {
             </Row>
           </address>
           <Button className='_button' onClick={handleDownloadCvClick}>
-            Download CV
+            Mon CV
           </Button>
         </Col>
       </div>
