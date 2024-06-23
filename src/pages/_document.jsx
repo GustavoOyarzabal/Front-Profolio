@@ -9,12 +9,7 @@ export default function Document() {
       <link
           rel='icon'
           href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1719141687/logo_portfolio_GG_woytbb_ugdfme.jpg'
-          type='image/jpeg'
-        />
-        <link
-          rel='icon'
-          href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1719141687/logo_portfolio_GG_woytbb_ugdfme.png'
-          type='image/png'
+          type='image/jpg'
         />
         <link
           rel='apple-touch-icon'
