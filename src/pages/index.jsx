@@ -10,6 +10,7 @@ import Footer from 'root/src/partials/footer';
 import Metadata from 'root/src/metadata';
 import { serialize } from 'next-mdx-remote/serialize';
 
+// bad practique//
 const BackURL = {
   URL: "https://gustavooyarzabal.com"
 };
