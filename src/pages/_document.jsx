@@ -16,7 +16,7 @@ export default function Document() {
           href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1719146148/logo_portfolio_GG_woytbb_ugdfme_hbpoo9.png'
           sizes='180x180'
         />
-        <link
+        {/* <link
           rel='icon'
           href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1717060764/tsLogobuenTamano_ptixpb.png'
           type='image/x-icon'
@@ -43,7 +43,7 @@ export default function Document() {
           rel='icon'
           href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1717061800/JsLogoiconfavion_tgakst.png'
           type='image/x-icon'
-        />
+        /> */}
 
 
         <HeadContent />
