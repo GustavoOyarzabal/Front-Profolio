@@ -21,7 +21,6 @@ const Metadata = () => (
 
     {/* Favicon and Apple Touch Icon */}
     <link rel='icon' sizes='32x32' href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1719146148/logo_portfolio_GG_woytbb_ugdfme_hbpoo9.png' />
-    <link rel='icon' sizes='32x32' href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1719146148/logo_portfolio_GG_woytbb_ugdfme_hbpoo9.png' />
     <link rel='apple-touch-icon' sizes='180x180' href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1719146148/logo_portfolio_GG_woytbb_ugdfme_hbpoo9.png' />
   </Head>
 )
