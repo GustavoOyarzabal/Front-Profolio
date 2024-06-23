@@ -81,6 +81,8 @@ const PostsList = () => {
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [slideEdge, setSlideEdge] = useState([null, null]);
 
+  console.log('Fetched Data in PostsList:', fetchedData);
+
   const handleNav = (action) => {
     if (!swiperInstance) return;
     switch (action) {
@@ -141,7 +143,6 @@ const PostsList = () => {
 
 const Formation = (props) => {
   const { data, ...otherProps } = props;
-  console.log('Formations data in component:', data);
   const initialState = {
     show: false,
     data: null,
@@ -238,13 +239,13 @@ export const getStaticProps = async () => {
     const res = await fetch(`${BackURL.URL}/api/portfolios/formation`);
     if (res.ok) {
       const data = await res.json();
-      console.log('Formations data fetched:', data);
       formationsData = await Promise.all(
         data.map(async (item) => ({
           ...item,
           content: await serialize(item.content),
         }))
       );
+      console.log('Fetched formation data:', formationsData);
     } else {
       console.error('Error fetching formations data:', res.statusText);
     }
