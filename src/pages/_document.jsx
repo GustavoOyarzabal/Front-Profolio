@@ -8,12 +8,12 @@ export default function Document() {
       <Head>
         <link
           rel='icon'
-          href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1718648254/icono_miniatura_portfolio_dos_czzjqe.webp'
+          href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1719141687/logo_portfolio_GG_woytbb_ugdfme.jpg'
           type='image/x-icon'
         />
         <link
           rel='apple-touch-icon'
-          href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1718648254/icono_miniatura_portfolio_dos_czzjqe.webp'
+          href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1719141687/logo_portfolio_GG_woytbb_ugdfme.jpg'
           sizes='180x180'
         />
         <link
@@ -46,7 +46,7 @@ export default function Document() {
         />
                 <link
           rel='apple-touch-icon'
-          href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1718648254/icono_miniatura_portfolio_dos_czzjqe.webp'
+          href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1719141687/logo_portfolio_GG_woytbb_ugdfme.jpg'
           sizes='180x180'
         />
 
