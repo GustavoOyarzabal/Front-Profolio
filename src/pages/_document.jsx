@@ -6,10 +6,20 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <link
+      <link
           rel='icon'
           href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1719141687/logo_portfolio_GG_woytbb_ugdfme.jpg'
+          type='image/jpeg'
+        />
+        <link
+          rel='icon'
+          href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1719141687/logo_portfolio_GG_woytbb_ugdfme.ico'
           type='image/x-icon'
+        />
+        <link
+          rel='icon'
+          href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1719141687/logo_portfolio_GG_woytbb_ugdfme.png'
+          type='image/png'
         />
         <link
           rel='apple-touch-icon'
@@ -44,11 +54,7 @@ export default function Document() {
           href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1717061800/JsLogoiconfavion_tgakst.png'
           type='image/x-icon'
         />
-                <link
-          rel='apple-touch-icon'
-          href='https://res.cloudinary.com/dtwacyhiq/image/upload/v1719141687/logo_portfolio_GG_woytbb_ugdfme.jpg'
-          sizes='180x180'
-        />
+
 
         <HeadContent />
       </Head>
