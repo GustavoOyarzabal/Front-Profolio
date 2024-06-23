@@ -86,11 +86,6 @@ const Footer = (props) => {
           />
           <SocialIcon
             url='www.linkedin.com/in/gustavooyarzabal'
-            Icon={icons.LogoInstagram}
-            color='#C32361'
-          />
-          <SocialIcon
-            url='www.linkedin.com/in/gustavooyarzabal'
             Icon={icons.LogoLinkedin}
             color='#0077B5'
           />
