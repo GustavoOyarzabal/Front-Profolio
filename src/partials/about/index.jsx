@@ -52,8 +52,8 @@ const About = (props) => {
     <SectionWrapper
       css={styled.About}
       headerData={{
-        title: aboutData?.title || 'Loading...',
-        description: aboutData?.subTitle || 'Loading...',
+        title: aboutData?.title || 'Loading11a...',
+        description: aboutData?.subTitle || 'Loading22b...',
       }}
       {...props}
     >
