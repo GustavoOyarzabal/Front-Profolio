@@ -29,6 +29,10 @@ const About = (props) => {
     return <div>Error: {error}</div>
   }
 
+  if (!aboutData) {
+    return null
+  }
+
   const handleDownloadCvClick = (event) => {
     event.preventDefault()
     setCvModalOpen(true)
