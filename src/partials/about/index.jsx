@@ -29,10 +29,6 @@ const About = (props) => {
     return <div>Error: {error}</div>
   }
 
-  if (!aboutData) {
-    return null
-  }
-
   const handleDownloadCvClick = (event) => {
     event.preventDefault()
     setCvModalOpen(true)
@@ -74,10 +70,10 @@ const About = (props) => {
         </Col>
         <Col xs='12' lg='7'>
           <h2 className='_subtitle'>
-            {aboutData?.description || 'Loading...'}
+            {aboutData?.description || 'Loading1...'}
           </h2>
           <h2 className='_title'>
-            {aboutData?.subDescription || 'Loading...'}
+            {aboutData?.subDescription || 'Loading2...'}
           </h2>
           <address className='_address'>
             <Row>
@@ -89,7 +85,7 @@ const About = (props) => {
                     target='_blank'
                     rel='noopener noreferrer'
                   >
-                    {aboutData?.github || 'Loading...'}
+                    {aboutData?.github || 'Loading3...'}
                   </a>
                 </p>
               </Col>
@@ -101,17 +97,17 @@ const About = (props) => {
                     target='_blank'
                     rel='noopener noreferrer'
                   >
-                    {aboutData?.gitLab || 'Loading...'}
+                    {aboutData?.gitLab || 'Loading4...'}
                   </a>
                 </p>
               </Col>
               <Col className='_info' xs='12' md='6'>
                 <span>Email:</span>
-                <p>{aboutData?.email || 'Loading...'}</p>
+                <p>{aboutData?.email || 'Loading5...'}</p>
               </Col>
               <Col className='_info' xs='12' md='6'>
                 <span>Tel:</span>
-                <p>{aboutData?.tel || 'Loading...'}</p>
+                <p>{aboutData?.tel || 'Loading6...'}</p>
               </Col>
             </Row>
           </address>
