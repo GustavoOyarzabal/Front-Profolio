@@ -41,7 +41,7 @@ const About = (props) => {
   const cvUrl =
     aboutData?.downloadCv && aboutData.downloadCv.startsWith('http')
       ? aboutData.downloadCv
-      : 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1719134687/Gustavo_Oyarzabal_CV_du0kdx.jpg'
+      : 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1720460961/Gustavo_Oyarzabal_qity39.jpg'
 
   const imageUrl =
     aboutData?.image && aboutData.image.startsWith('http')
