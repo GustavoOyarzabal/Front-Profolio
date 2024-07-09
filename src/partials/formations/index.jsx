@@ -170,7 +170,7 @@ const Formation = (props) => {
     <SectionWrapper
       headerData={{
         title: 'Formations',
-        description: 'My most relevant training',
+        description: 'My most relevant training...',
       }}
       altBg={false}
       {...otherProps}
