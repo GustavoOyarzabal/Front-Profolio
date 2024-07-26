@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Row, Col } from 'react-bootstrap';
-import Typed from 'typed.js';
-import SectionWrapper from 'root/src/components/section-wrapper';
-import { Link as ScrollLink } from 'react-scroll';
-import ImageVariant from './variants/image';
-import VideoVariant from './variants/video';
-import ParticlesVariant from './variants/particles';
-import styled from './style';
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import { Row, Col } from 'react-bootstrap'
+import Typed from 'typed.js'
+import SectionWrapper from 'root/src/components/section-wrapper'
+import { Link as ScrollLink } from 'react-scroll'
+import ImageVariant from './variants/image'
+import VideoVariant from './variants/video'
+import ParticlesVariant from './variants/particles'
+import styled from './style'
 
 const BackURL = {
-  URL: "https://gustavooyarzabal.com"
-};
+  URL: 'https://gustavooyarzabal.com',
+}
 
-const API_URL = `${BackURL.URL}/api/portfolios`;
+const API_URL = `${BackURL.URL}/api/portfolios`
 
 const MouseShape = () => (
   <ScrollLink
@@ -27,36 +27,39 @@ const MouseShape = () => (
       <div className='_wheel' />
     </div>
   </ScrollLink>
-);
+)
 
 const Presentation = (props) => {
-  const { variant, ...otherProps } = props;
+  const { variant, ...otherProps } = props
   const [presentationData, setPresentationData] = useState({
-    skillName: 'Developer',
-    skillLastName: '',
+    skillName: 'Web Developer',
+    skillLastName: 'Gustavo Oyarzabal',
     skillHeadline: '',
-  });
+  })
 
   useEffect(() => {
     const fetchPresentationData = async () => {
       try {
-        const response = await axios.get(`${API_URL}/presentation`);
-        console.log("Raw response data: ", response.data);
-        const presentationResponse = response.data; //
+        const response = await axios.get(`${API_URL}/presentation`)
+        console.log('Raw response data: ', response.data)
+        const presentationResponse = response.data //
         if (presentationResponse) {
-          setPresentationData(presentationResponse);
-          console.log("Presentation data set: ", presentationResponse);
+          setPresentationData(presentationResponse)
+          console.log('Presentation data set: ', presentationResponse)
         }
       } catch (error) {
-        console.error('Error fetching presentation data:', error);
+        console.error('Error fetching presentation data:', error)
       }
-    };
+    }
 
-    fetchPresentationData();
-  }, []);
+    fetchPresentationData()
+  }, [])
 
   useEffect(() => {
-    console.log("Typed.js initialized with headline: ", presentationData.skillHeadline);
+    console.log(
+      'Typed.js initialized with headline: ',
+      presentationData.skillHeadline,
+    )
     const options = {
       strings: [presentationData.skillHeadline || 'Developer'],
       typeSpeed: 40,
@@ -64,13 +67,13 @@ const Presentation = (props) => {
       loop: true,
       smartBackspace: false,
       backDelay: 2000,
-    };
+    }
 
-    const typed = new Typed('#typed', options);
+    const typed = new Typed('#typed', options)
     return () => {
-      typed.destroy();
-    };
-  }, [presentationData.skillHeadline]);
+      typed.destroy()
+    }
+  }, [presentationData.skillHeadline])
 
   return (
     <SectionWrapper
@@ -92,13 +95,13 @@ const Presentation = (props) => {
             <span> {presentationData.skillLastName}</span>
           </h1>
           <h4 className='_headline'>
-          <span id='typed' />
+            <span id='typed' />
           </h4>
         </Col>
         <MouseShape />
       </Row>
     </SectionWrapper>
-  );
-};
+  )
+}
 
-export default Presentation;
+export default Presentation
