@@ -14,15 +14,15 @@ import { Card, Col, Row, Container } from 'react-bootstrap'
 import Lightbox from 'root/src/components/lightbox'
 import classNames from 'classnames'
 import MdxRenderer from 'root/src/components/mdx-renderer'
-import styled from './style'
+// import styled from './style'
 import { serialize } from 'next-mdx-remote/serialize'
 
 // Import the .mdx files
-import altContent from 'root/src/data/alt.mdx'
-import tradingContent from 'root/src/data/trading.mdx'
-import southworksContent from 'root/src/data/southworks.mdx'
-import maquinagroContent from 'root/src/data/maquinagro.mdx'
-import altaRegionContent from 'root/src/data/alta-region.mdx'
+import altContent from 'root/src/partials/experience/data/alt.mdx'
+import tradingContent from 'root/src/partials/experience/data/traiding.mdx'
+import southworksContent from 'root/src/partials/experience/data/southworks.mdx'
+import maquinagroContent from 'root/src/partials/experience/data/maquinagro.mdx'
+import altaRegionContent from 'root/src/partials/experience/data/alta-region.mdx'
 
 const capitalizeFirstLetter = (string) =>
   string.charAt(0).toUpperCase() + string.slice(1)
