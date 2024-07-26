@@ -24,7 +24,7 @@ const VideoVariant = () => {
       loop: true,
       sources: [
         {
-          src: 'https://res.cloudinary.com/dtwacyhiq/video/upload/v1717065682/matrixHirer_kaaz1y.mp4',
+          src: 'https://res.cloudinary.com/dtwacyhiq/video/upload/v1716929449/video_ecsvsv.mp4',
           type: 'video/mp4',
         },
       ],
