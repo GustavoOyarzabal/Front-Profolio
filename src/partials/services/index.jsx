@@ -9,47 +9,56 @@ const servicesData = [
     name: 'JavaScript',
     logo: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1717061800/JsLogoiconfavion_tgakst.png',
     title: 'JavaScript Development',
-    description: 'Building dynamic and interactive web applications.',
+    description: 'Building dynamic and interactive web applications.'
   },
   {
     name: 'TypeScript',
     logo: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1717060764/tsLogobuenTamano_ptixpb.png',
     title: 'TypeScript Development',
-    description:
-      'Enhancing JavaScript with static typing for robust applications.',
+    description: 'Enhancing JavaScript with static typing for robust applications.'
   },
   {
     name: 'Nest.js',
     logo: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1717060928/nestJSFavicon_twh5tb.jpg',
     title: 'Nest.js Development',
-    description: 'Creating scalable and maintainable server-side applications.',
+    description: 'Creating scalable and maintainable server-side applications.'
   },
   {
     name: 'Next.js',
     logo: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1717061262/nextJSlogoFaviconIcon_wqo7fx.png',
     title: 'Next.js Development',
-    description:
-      'Building server-rendered React applications for optimal performance.',
+    description: 'Building server-rendered React applications for optimal performance.'
   },
   {
     name: 'Node.js',
     logo: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1717062256/nodeJSicongoodtamano_ltrohu.png',
     title: 'Node.js Development',
-    description: 'Developing fast and scalable network applications.',
+    description: 'Developing fast and scalable network applications.'
   },
   {
     name: 'Python',
     logo: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1721983946/logoPython_ymmsx1.jpg',
     title: 'Python Development',
-    description: 'Creating powerful and efficient backend systems.',
+    description: 'Creating powerful and efficient backend systems.'
   },
   {
     name: 'Docker',
     logo: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1721984061/dockerLogo_xha3i6.png',
     title: 'Docker',
-    description:
-      'Containerizing applications for consistent and efficient deployment.',
+    description: 'Containerizing applications for consistent and efficient deployment.'
   },
+  {
+    name: 'React.js',
+    logo: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1717061920/ReacticonFavicon_jktfgp.png',
+    title: 'React.js Development',
+    description: 'Building user interfaces with React.js.'
+  },
+  {
+    name: 'MongoDB',
+    logo: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1721984710/mongoDBLogo_bxjoku.png',
+    title: 'MongoDB',
+    description: 'Database management with MongoDB.'
+  }
 ]
 
 // Icon image component
@@ -108,6 +117,7 @@ const Services = (props) => {
 }
 
 export default Services
+
 
 // import { useEffect, useState } from 'react'
 // import { Row, Col } from 'react-bootstrap'
