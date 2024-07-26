@@ -1,10 +1,4 @@
-import {
-  useContext,
-  createContext,
-  useReducer,
-  useState,
-  useEffect,
-} from 'react'
+import { useContext, createContext, useReducer, useState } from 'react'
 import SectionWrapper from 'root/src/components/section-wrapper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Image from 'next/image'
@@ -25,81 +19,149 @@ const Context = createContext({})
 
 const experienceData = [
   {
-    title: 'Criptoinfo',
-    date: '2022-01-02',
-    tags: ['Cryptocurrency', 'Blockchain'],
+    title: 'FULL STACK DEVELOPER',
+    date: '2023-2024',
+    tags: [
+      'JavaScript',
+      'TypeScript',
+      'React.js',
+      'Next.js',
+      'Nest.js',
+      'Express',
+      'Node.js',
+      'Docker',
+      'MongoDB',
+    ],
     summary:
-      'In 2022, I embarked on a new challenge by dedicating myself to cryptocurrency trading, exploring the fascinating dynamics of blockchains. This experience not only enriched my understanding of modern financial technologies but also sharpened my analytical skills and ability to act under pressure, valuable assets in any technology and innovation-driven sector.',
-    thumbnail: {
-      url: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1718979199/criptoInfo_logo_fu40bm.webp',
-    },
-    content: 'Trading and Blockchain experience details...',
-  },
-  {
-    title: 'AltaRegion',
-    date: '2021-02-14',
-    tags: ['Web Development', 'JavaScript'],
-    summary:
-      'Developed web applications for the region. Extensive use of JavaScript and related frameworks.',
-    thumbnail: {
-      url: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1718037064/alta_region_tester_hijmes.webp',
-    },
-    content: 'Web development for regional projects...',
-  },
-  {
-    title: 'Cybercafe',
-    date: '2020-03-05',
-    tags: ['Networking', 'Customer Support'],
-    summary:
-      'Managed and maintained networks and computer systems for a cybercafé. Provided customer support and managed security.',
-    thumbnail: {
-      url: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1717064978/cibercafe_quk6nt.webp',
-    },
-    content: 'Network and system management for a cybercafé...',
-  },
-  {
-    title: 'Maquinagro',
-    date: '2019-04-18',
-    tags: ['Agriculture', 'Technology'],
-    summary:
-      'Developed technological solutions for agriculture. Implemented automated systems and smart sensors.',
-    thumbnail: {
-      url: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1717063518/maquinagroLogo_z0smxn.jpg',
-    },
-    content: 'Technological solutions for agriculture...',
-  },
-  {
-    title: 'Algorithmic Trading',
-    date: '2018-05-25',
-    tags: ['Algorithmic Trading', 'Programming'],
-    summary:
-      'Developed trading algorithms for arbitrage. Advanced programming and financial data analysis.',
-    thumbnail: {
-      url: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1717063106/DALL_E_2024-05-30_11.57.52_-_A_simple_image_featuring_the_words_Trading_and_Blockchain_with_a_clean_professional_font._Use_yellow_and_another_color_for_differentiation._Inclu_lz1zxg.webp',
-    },
-    content: 'Algorithmic trading and financial analysis...',
-  },
-  {
-    title: 'Southworks',
-    date: '2017-06-10',
-    tags: ['Software Development', 'Team Management'],
-    summary:
-      'Managed software development projects and led developer teams. Implemented complex software solutions.',
-    thumbnail: {
-      url: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1720509583/southworklogo_r4klml.jpg',
-    },
-    content: 'Software development project management...',
-  },
-  {
-    title: 'Alt',
-    date: '2016-07-22',
-    tags: ['Innovation', 'Startups'],
-    summary:
-      'Participated in innovative projects and startup development. Focused on technological innovation and rapid growth.',
+      'Fullstack developer on a web application for artisan sales, using Next.js, NestJS, and MongoDB. Managed agile projects, developed the user interface with Next.js and Tailwind, and secured forms. On the backend, created Prisma models, CRUD operations, and implemented middlewares for authentication and error handling, deploying the application with Docker Compose.',
     thumbnail: {
       url: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1717062359/AlticonfaviconLogo_yx8zqz.jpg',
     },
-    content: 'Innovation and startup development...',
+    content: `
+## FULL STACK DEVELOPER
+**ALT Incubateur Tech - Rennes (France)**
+Fullstack developer on a web application for artisan sales, using Next.js, NestJS, and MongoDB. Managed agile projects, developed the user interface with Next.js and Tailwind, and secured forms. On the backend, created Prisma models, CRUD operations, and implemented middlewares for authentication and error handling, deploying the application with Docker Compose.
+
+**Skills:**
+- JavaScript
+- TypeScript
+- React.js
+- Next.js
+- Nest.js
+- Express
+- Node.js
+- Docker
+- MongoDB
+`,
+  },
+  {
+    title: 'Algorithmic Trading',
+    date: '2022',
+    tags: ['Market Analysis', 'Risk Management', 'Python', 'Django', 'Flask'],
+    summary:
+      'Took on a new challenge by focusing on cryptocurrency trading for two clients who are experts in finance and trading. This experience deepened my understanding of modern financial technologies and developed trading algorithms for arbitrage, refining my programming and analysis skills under pressure.',
+    thumbnail: {
+      url: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1717063106/DALL_E_2024-05-30_11.57.52_-_A_simple_image_featuring_the_words_Trading_and_Blockchain_with_a_clean_professional_font._Use_yellow_and_another_color_for_differentiation._Inclu_lz1zxg.webp',
+    },
+    content: `
+## Algorithmic Trading
+Took on a new challenge by focusing on cryptocurrency trading for two clients who are experts in finance and trading. This experience deepened my understanding of modern financial technologies and developed trading algorithms for arbitrage, refining my programming and analysis skills under pressure.
+
+**Skills:**
+- Market Analysis
+- Risk Management
+- Python
+- Django
+- Flask
+`,
+  },
+  {
+    title: 'FULL STACK DEVELOPER',
+    date: '2020-2022',
+    tags: [
+      'Node.js',
+      'React.js',
+      'Agile Methodology',
+      'MongoDB',
+      'Docker',
+      'Git',
+    ],
+    summary:
+      'Worked as a FullStack developer from 2020 until mid-July 2022 at SOUTHWORKS. Developed web applications using React.js, Node.js, MongoDB, and Docker, and integrated social media APIs. One of my main projects was creating a web interface for social media post integration. Collaborated closely with designers and other developers, optimized application performance, and ensured code quality through CI/CD practices.',
+    thumbnail: {
+      url: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1720509583/southworklogo_r4klml.jpg',
+    },
+    content: `
+## FULL STACK DEVELOPER
+**SOUTHWORKS - Buenos Aires (Argentina)**
+Worked as a FullStack developer from 2020 until mid-July 2022 at SOUTHWORKS. Developed web applications using React.js, Node.js, MongoDB, and Docker, and integrated social media APIs. One of my main projects was creating a web interface for social media post integration. Collaborated closely with designers and other developers, optimized application performance, and ensured code quality through CI/CD practices.
+
+**Skills:**
+- Node.js
+- React.js
+- Agile Methodology
+- MongoDB
+- Docker
+- Git
+`,
+  },
+  {
+    title: 'QA Tester',
+    date: '2016-2017',
+    tags: [
+      'Oracle',
+      'Postman',
+      'JIRA',
+      'Selenium IDE',
+      'Teamwork',
+      'Requirement Analysis',
+      'Database Creation',
+    ],
+    summary:
+      'Worked as a QA Tester at MAQUINAGRO, a company specializing in the manufacture of agricultural machinery. My role involved setting up and maintaining quality processes to ensure product compliance and quality. Used tools such as Oracle, Postman, JIRA, and Selenium IDE, and collaborated with different departments to resolve technical issues and implement error prevention strategies.',
+    thumbnail: {
+      url: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1717063518/maquinagroLogo_z0smxn.jpg',
+    },
+    content: `
+## QA Tester
+**MAQUINAGRO SA - Junín - Buenos Aires (Argentina)**
+Worked as a QA Tester at MAQUINAGRO, a company specializing in the manufacture of agricultural machinery. My role involved setting up and maintaining quality processes to ensure product compliance and quality. Used tools such as Oracle, Postman, JIRA, and Selenium IDE, and collaborated with different departments to resolve technical issues and implement error prevention strategies.
+
+**Skills:**
+- Oracle
+- Postman
+- JIRA
+- Selenium IDE
+- Teamwork
+- Requirement Analysis
+- Database Creation
+`,
+  },
+  {
+    title: 'QA Tester',
+    date: '2015-2016',
+    tags: [
+      'Visual Studio Team System (VSTS)',
+      'Functional Testing',
+      'Teamwork',
+      'Stress Management',
+    ],
+    summary:
+      'Worked as a QA Tester at Alta-Region, a web development company. My role involved implementing and maintaining quality processes to ensure product compliance. Conducted various types of testing and used tools like Visual Studio Team System (VSTS). Collaborated with various departments to resolve technical issues and implement error prevention strategies.',
+    thumbnail: {
+      url: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1718037064/alta_region_tester_hijmes.webp',
+    },
+    content: `
+## QA Tester
+**AltaRegion.com - Junín - Buenos Aires (Argentina)**
+Worked as a QA Tester at Alta-Region, a web development company. My role involved implementing and maintaining quality processes to ensure product compliance. Conducted various types of testing and used tools like Visual Studio Team System (VSTS). Collaborated with various departments to resolve technical issues and implement error prevention strategies.
+
+**Skills:**
+- Visual Studio Team System (VSTS)
+- Functional Testing
+- Teamwork
+- Stress Management
+`,
   },
 ]
 
@@ -125,7 +187,7 @@ const Post = ({ data }) => {
     ))
   }
 
-  const dateToText = (dateInput) => dayjs(dateInput).format('MMMM D, YYYY')
+  const dateToText = (dateInput) => dateInput
 
   return (
     <Card css={styled.Post}>
