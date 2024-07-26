@@ -11,11 +11,36 @@ const About = (props) => {
   const [error, setError] = useState(null)
   const [cvModalOpen, setCvModalOpen] = useState(false)
 
+  //para poner los datos en duro necesito comentar el flech
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     try {
+  //       // const data = await fetchAboutData()
+  //       console.log('Fetched data:', data)
+  //       setAboutData(data)
+  //     } catch (fetchError) {
+  //       setError(fetchError.message)
+  //     }
+  //   }
   useEffect(() => {
+    // Simular la obtención de datos del API
     const getData = async () => {
       try {
-        const data = await fetchAboutData()
-        console.log('Fetched data:', data)
+        // Aquí deberías reemplazar los datos estáticos con la llamada real a la API
+        const data = {
+          title: 'Sobre mí',
+          subTitle: 'Desarrollador Full-Stack',
+          description: 'Soy un desarrollador apasionado...',
+          subDescription: 'Con experiencia en React, Node.js...',
+          github: 'https://github.com/GustavoOyarzabal',
+          gitLab: 'https://gitlab.com/GustavoOyarzabal',
+          email: 'oyarzabal.gustavo@gmail.com',
+          tel: '+33 0671473291',
+          downloadCv:
+            'https://res.cloudinary.com/dtwacyhiq/image/upload/v1721982157/1_klqnyc.png',
+          image:
+            'https://res.cloudinary.com/dtwacyhiq/image/upload/v1716661323/lzsmkwi1pnw72gymezuy.png',
+        }
         setAboutData(data)
       } catch (fetchError) {
         setError(fetchError.message)
@@ -52,8 +77,8 @@ const About = (props) => {
     <SectionWrapper
       css={styled.About}
       headerData={{
-        title: aboutData?.title || 'Loading11a...',
-        description: aboutData?.subTitle || 'Loading22b...',
+        title: aboutData?.title || 'About Me',
+        description: aboutData?.subTitle || 'Web Developer',
       }}
       {...props}
     >
