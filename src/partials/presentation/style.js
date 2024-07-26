@@ -51,7 +51,57 @@ export default {
       }
     }
   `,
-  MouseShape: c
+  MouseShape: css`
+    position: absolute;
+    width: 29px;
+    right: 0;
+    bottom: 5.5%;
+    left: 0;
+    margin: 0 auto;
+    box-sizing: content-box;
+    cursor: pointer;
+    @media (max-width: ${bs['breakpoint-max-lg']}) {
+      display: none;
+    }
+    ._shape {
+      width: 3px;
+      padding: 5px 11px;
+      height: 28px;
+      border: 2px solid transparent;
+      border-radius: 25px;
+      opacity: 0.8;
+      box-sizing: content-box;
+      border-color: #fff;
+      background-color: ${rgba('#000', 0.45)};
+      ._wheel {
+        background-color: #fff;
+        width: 3px;
+        height: 9px;
+        border-radius: 25%;
+        animation-name: scrollDown;
+        animation-duration: 1.3s;
+        animation-timing-function: cubic-bezier(0.15, 0.41, 0.69, 0.94);
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes scrollDown {
+        0% {
+          opacity: 0;
+        }
+
+        10% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+
+        100% {
+          transform: translateY(15px);
+          opacity: 0;
+        }
+      }
+    }
+  `,
+}
 
 // /*
 // Styles for the component
