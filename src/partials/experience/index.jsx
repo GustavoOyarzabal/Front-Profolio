@@ -1,4 +1,10 @@
-import { useContext, createContext, useReducer, useState } from 'react'
+import {
+  useContext,
+  createContext,
+  useReducer,
+  useState,
+  useEffect,
+} from 'react'
 import SectionWrapper from 'root/src/components/section-wrapper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Image from 'next/image'
@@ -9,6 +15,14 @@ import Lightbox from 'root/src/components/lightbox'
 import classNames from 'classnames'
 import MdxRenderer from 'root/src/components/mdx-renderer'
 import styled from './style'
+import { serialize } from 'next-mdx-remote/serialize'
+
+// Import the .mdx files
+import altContent from 'root/src/data/alt.mdx'
+import tradingContent from 'root/src/data/trading.mdx'
+import southworksContent from 'root/src/data/southworks.mdx'
+import maquinagroContent from 'root/src/data/maquinagro.mdx'
+import altaRegionContent from 'root/src/data/alta-region.mdx'
 
 const capitalizeFirstLetter = (string) =>
   string.charAt(0).toUpperCase() + string.slice(1)
@@ -35,22 +49,7 @@ const experienceData = [
     thumbnail: {
       url: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1717062359/AlticonfaviconLogo_yx8zqz.jpg',
     },
-    content: `
-## FULL STACK DEVELOPER
-**ALT Incubateur Tech - Rennes (France)**
-Fullstack developer on a web application for artisan sales, using Next.js, NestJS, and MongoDB. Managed agile projects, developed the user interface with Next.js and Tailwind, and secured forms. On the backend, created Prisma models, CRUD operations, and implemented middlewares for authentication and error handling, deploying the application with Docker Compose.
-
-**Skills:**
-- JavaScript
-- TypeScript
-- React.js
-- Next.js
-- Nest.js
-- Express
-- Node.js
-- Docker
-- MongoDB
-`,
+    content: altContent,
   },
   {
     title: 'Algorithmic Trading',
@@ -61,17 +60,7 @@ Fullstack developer on a web application for artisan sales, using Next.js, NestJ
     thumbnail: {
       url: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1717063106/DALL_E_2024-05-30_11.57.52_-_A_simple_image_featuring_the_words_Trading_and_Blockchain_with_a_clean_professional_font._Use_yellow_and_another_color_for_differentiation._Inclu_lz1zxg.webp',
     },
-    content: `
-## Algorithmic Trading
-Took on a new challenge by focusing on cryptocurrency trading for two clients who are experts in finance and trading. This experience deepened my understanding of modern financial technologies and developed trading algorithms for arbitrage, refining my programming and analysis skills under pressure.
-
-**Skills:**
-- Market Analysis
-- Risk Management
-- Python
-- Django
-- Flask
-`,
+    content: tradingContent,
   },
   {
     title: 'FULL STACK DEVELOPER',
@@ -89,19 +78,7 @@ Took on a new challenge by focusing on cryptocurrency trading for two clients wh
     thumbnail: {
       url: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1720509583/southworklogo_r4klml.jpg',
     },
-    content: `
-## FULL STACK DEVELOPER
-**SOUTHWORKS - Buenos Aires (Argentina)**
-Worked as a FullStack developer from 2020 until mid-July 2022 at SOUTHWORKS. Developed web applications using React.js, Node.js, MongoDB, and Docker, and integrated social media APIs. One of my main projects was creating a web interface for social media post integration. Collaborated closely with designers and other developers, optimized application performance, and ensured code quality through CI/CD practices.
-
-**Skills:**
-- Node.js
-- React.js
-- Agile Methodology
-- MongoDB
-- Docker
-- Git
-`,
+    content: southworksContent,
   },
   {
     title: 'QA Tester',
@@ -120,20 +97,7 @@ Worked as a FullStack developer from 2020 until mid-July 2022 at SOUTHWORKS. Dev
     thumbnail: {
       url: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1717063518/maquinagroLogo_z0smxn.jpg',
     },
-    content: `
-## QA Tester
-**MAQUINAGRO SA - Junín - Buenos Aires (Argentina)**
-Worked as a QA Tester at MAQUINAGRO, a company specializing in the manufacture of agricultural machinery. My role involved setting up and maintaining quality processes to ensure product compliance and quality. Used tools such as Oracle, Postman, JIRA, and Selenium IDE, and collaborated with different departments to resolve technical issues and implement error prevention strategies.
-
-**Skills:**
-- Oracle
-- Postman
-- JIRA
-- Selenium IDE
-- Teamwork
-- Requirement Analysis
-- Database Creation
-`,
+    content: maquinagroContent,
   },
   {
     title: 'QA Tester',
@@ -148,17 +112,7 @@ Worked as a QA Tester at MAQUINAGRO, a company specializing in the manufacture o
     thumbnail: {
       url: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1718037064/alta_region_tester_hijmes.webp',
     },
-    content: `
-## QA Tester
-**AltaRegion.com - Junín - Buenos Aires (Argentina)**
-Worked as a QA Tester at Alta-Region, a web development company. My role involved implementing and maintaining quality processes to ensure product compliance. Conducted various types of testing and used tools like Visual Studio Team System (VSTS). Collaborated with various departments to resolve technical issues and implement error prevention strategies.
-
-**Skills:**
-- Visual Studio Team System (VSTS)
-- Functional Testing
-- Teamwork
-- Stress Management
-`,
+    content: altaRegionContent,
   },
 ]
 
