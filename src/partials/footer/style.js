@@ -1,7 +1,3 @@
-/*
-Styles for the component
-*/
-
 import { css } from '@emotion/react'
 import { lighten } from 'polished'
 import bs from 'root/src/styles/bootstrap'
