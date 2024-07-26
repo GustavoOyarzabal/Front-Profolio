@@ -32,9 +32,9 @@ const MouseShape = () => (
 const Presentation = (props) => {
   const { variant, ...otherProps } = props
   const [presentationData, setPresentationData] = useState({
-    skillName: 'Web Developer',
-    skillLastName: 'Gustavo Oyarzabal',
-    skillHeadline: '',
+    skillName: 'Gustavo',
+    skillLastName: 'Oyarzabal',
+    skillHeadline: 'Web Developer',
   })
 
   useEffect(() => {
@@ -42,7 +42,7 @@ const Presentation = (props) => {
       try {
         const response = await axios.get(`${API_URL}/presentation`)
         console.log('Raw response data: ', response.data)
-        const presentationResponse = response.data //
+        const presentationResponse = response.data
         if (presentationResponse) {
           setPresentationData(presentationResponse)
           console.log('Presentation data set: ', presentationResponse)
@@ -61,7 +61,7 @@ const Presentation = (props) => {
       presentationData.skillHeadline,
     )
     const options = {
-      strings: [presentationData.skillHeadline || 'Developer'],
+      strings: [presentationData.skillHeadline || 'Web Developer'],
       typeSpeed: 40,
       backSpeed: 40,
       loop: true,
