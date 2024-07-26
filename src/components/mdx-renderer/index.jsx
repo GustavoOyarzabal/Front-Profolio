@@ -1,6 +1,5 @@
 import { MDXRemote } from 'next-mdx-remote'
 import { MDXProvider } from '@mdx-js/react'
-import { serialize } from 'next-mdx-remote/serialize'
 
 const MdxRenderer = ({ serializedSource, components }) => (
   <MDXProvider components={components}>

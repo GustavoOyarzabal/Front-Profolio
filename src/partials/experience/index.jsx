@@ -142,8 +142,8 @@ const Post = ({ data }) => {
             style={{ width: '100%', objectFit: 'cover' }}
             src={thumbnail.url}
             alt='experience post thumbnail'
-            width={250}
-            height={250}
+            fill
+            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
           />
         ) : (
           <div>No Thumbnail Available</div>

@@ -1,16 +1,13 @@
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
-  options: {
-    providerImportSource: '@mdx-js/react',
-  },
 })
 
 module.exports = withMDX({
+  pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   reactStrictMode: true,
   swcMinify: true,
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   images: {
-    domains: ['res.cloudinary.com'], // dominio cloudinary
+    domains: ['res.cloudinary.com'],
     formats: ['image/avif', 'image/webp'],
   },
   compiler: {

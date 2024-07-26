@@ -1,7 +1,3 @@
-/*
-Component that shows a lightbox (modal) containing the passed content
-*/
-
 import { Container, Modal, CloseButton } from 'react-bootstrap'
 import styled from './style'
 

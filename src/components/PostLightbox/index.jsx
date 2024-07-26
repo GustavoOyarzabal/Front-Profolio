@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import Lightbox from 'root/src/components/lightbox'
 import MdxRenderer from 'root/src/components/mdx-renderer'
 import styled from './style'
