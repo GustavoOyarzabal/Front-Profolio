@@ -5,7 +5,6 @@ import Image from 'next/image'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import { Card, Col, Row, Container } from 'react-bootstrap'
-import dayjs from 'dayjs'
 import Lightbox from 'root/src/components/lightbox'
 import classNames from 'classnames'
 import MdxRenderer from 'root/src/components/mdx-renderer'
@@ -33,7 +32,7 @@ const experienceData = [
       'MongoDB',
     ],
     summary:
-      'Fullstack developer on a web application for artisan sales, using Next.js, NestJS, and MongoDB. Managed agile projects, developed the user interface with Next.js and Tailwind, and secured forms. On the backend, created Prisma models, CRUD operations, and implemented middlewares for authentication and error handling, deploying the application with Docker Compose.',
+      'Fullstack developer on a web application for artisan sales, using Next.js, NestJS, and MongoDB.',
     thumbnail: {
       url: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1717062359/AlticonfaviconLogo_yx8zqz.jpg',
     },
@@ -59,7 +58,7 @@ Fullstack developer on a web application for artisan sales, using Next.js, NestJ
     date: '2022',
     tags: ['Market Analysis', 'Risk Management', 'Python', 'Django', 'Flask'],
     summary:
-      'Took on a new challenge by focusing on cryptocurrency trading for two clients who are experts in finance and trading. This experience deepened my understanding of modern financial technologies and developed trading algorithms for arbitrage, refining my programming and analysis skills under pressure.',
+      'Focused on cryptocurrency trading for two clients who are experts in finance and trading.',
     thumbnail: {
       url: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1717063106/DALL_E_2024-05-30_11.57.52_-_A_simple_image_featuring_the_words_Trading_and_Blockchain_with_a_clean_professional_font._Use_yellow_and_another_color_for_differentiation._Inclu_lz1zxg.webp',
     },
@@ -87,7 +86,7 @@ Took on a new challenge by focusing on cryptocurrency trading for two clients wh
       'Git',
     ],
     summary:
-      'Worked as a FullStack developer from 2020 until mid-July 2022 at SOUTHWORKS. Developed web applications using React.js, Node.js, MongoDB, and Docker, and integrated social media APIs. One of my main projects was creating a web interface for social media post integration. Collaborated closely with designers and other developers, optimized application performance, and ensured code quality through CI/CD practices.',
+      'Worked as a FullStack developer from 2020 until mid-July 2022 at SOUTHWORKS.',
     thumbnail: {
       url: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1720509583/southworklogo_r4klml.jpg',
     },
@@ -118,7 +117,7 @@ Worked as a FullStack developer from 2020 until mid-July 2022 at SOUTHWORKS. Dev
       'Database Creation',
     ],
     summary:
-      'Worked as a QA Tester at MAQUINAGRO, a company specializing in the manufacture of agricultural machinery. My role involved setting up and maintaining quality processes to ensure product compliance and quality. Used tools such as Oracle, Postman, JIRA, and Selenium IDE, and collaborated with different departments to resolve technical issues and implement error prevention strategies.',
+      'Worked as a QA Tester at MAQUINAGRO, a company specializing in the manufacture of agricultural machinery.',
     thumbnail: {
       url: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1717063518/maquinagroLogo_z0smxn.jpg',
     },
@@ -146,8 +145,7 @@ Worked as a QA Tester at MAQUINAGRO, a company specializing in the manufacture o
       'Teamwork',
       'Stress Management',
     ],
-    summary:
-      'Worked as a QA Tester at Alta-Region, a web development company. My role involved implementing and maintaining quality processes to ensure product compliance. Conducted various types of testing and used tools like Visual Studio Team System (VSTS). Collaborated with various departments to resolve technical issues and implement error prevention strategies.',
+    summary: 'Worked as a QA Tester at Alta-Region, a web development company.',
     thumbnail: {
       url: 'https://res.cloudinary.com/dtwacyhiq/image/upload/v1718037064/alta_region_tester_hijmes.webp',
     },
