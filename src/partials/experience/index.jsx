@@ -1,10 +1,4 @@
-import {
-  useContext,
-  createContext,
-  useReducer,
-  useState,
-  useEffect,
-} from 'react'
+import { useContext, createContext, useReducer, useState } from 'react'
 import SectionWrapper from 'root/src/components/section-wrapper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Image from 'next/image'
@@ -14,15 +8,13 @@ import { Card, Col, Row, Container } from 'react-bootstrap'
 import Lightbox from 'root/src/components/lightbox'
 import classNames from 'classnames'
 import MdxRenderer from 'root/src/components/mdx-renderer'
-// import styled from './style'
-import { serialize } from 'next-mdx-remote/serialize'
-
 // Import the .mdx files
 import altContent from 'root/src/partials/experience/data/alt.mdx'
 import tradingContent from 'root/src/partials/experience/data/traiding.mdx'
 import southworksContent from 'root/src/partials/experience/data/southworks.mdx'
 import maquinagroContent from 'root/src/partials/experience/data/maquinagro.mdx'
 import altaRegionContent from 'root/src/partials/experience/data/alta-region.mdx'
+import styled from './style'
 
 const capitalizeFirstLetter = (string) =>
   string.charAt(0).toUpperCase() + string.slice(1)
