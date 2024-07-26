@@ -1,4 +1,10 @@
-import { useContext, createContext, useReducer, useState } from 'react'
+import {
+  useContext,
+  createContext,
+  useReducer,
+  useState,
+  useEffect,
+} from 'react'
 import SectionWrapper from 'root/src/components/section-wrapper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Image from 'next/image'
@@ -20,7 +26,7 @@ const Context = createContext({})
 const experienceData = [
   {
     title: 'Criptoinfo',
-    date: 'January 2, 2022',
+    date: '2022-01-02',
     tags: ['Cryptocurrency', 'Blockchain'],
     summary:
       'In 2022, I embarked on a new challenge by dedicating myself to cryptocurrency trading, exploring the fascinating dynamics of blockchains. This experience not only enriched my understanding of modern financial technologies but also sharpened my analytical skills and ability to act under pressure, valuable assets in any technology and innovation-driven sector.',
@@ -31,7 +37,7 @@ const experienceData = [
   },
   {
     title: 'AltaRegion',
-    date: 'February 14, 2021',
+    date: '2021-02-14',
     tags: ['Web Development', 'JavaScript'],
     summary:
       'Developed web applications for the region. Extensive use of JavaScript and related frameworks.',
@@ -42,7 +48,7 @@ const experienceData = [
   },
   {
     title: 'Cybercafe',
-    date: 'March 5, 2020',
+    date: '2020-03-05',
     tags: ['Networking', 'Customer Support'],
     summary:
       'Managed and maintained networks and computer systems for a cybercafé. Provided customer support and managed security.',
@@ -53,7 +59,7 @@ const experienceData = [
   },
   {
     title: 'Maquinagro',
-    date: 'April 18, 2019',
+    date: '2019-04-18',
     tags: ['Agriculture', 'Technology'],
     summary:
       'Developed technological solutions for agriculture. Implemented automated systems and smart sensors.',
@@ -64,7 +70,7 @@ const experienceData = [
   },
   {
     title: 'Algorithmic Trading',
-    date: 'May 25, 2018',
+    date: '2018-05-25',
     tags: ['Algorithmic Trading', 'Programming'],
     summary:
       'Developed trading algorithms for arbitrage. Advanced programming and financial data analysis.',
@@ -75,7 +81,7 @@ const experienceData = [
   },
   {
     title: 'Southworks',
-    date: 'June 10, 2017',
+    date: '2017-06-10',
     tags: ['Software Development', 'Team Management'],
     summary:
       'Managed software development projects and led developer teams. Implemented complex software solutions.',
@@ -86,7 +92,7 @@ const experienceData = [
   },
   {
     title: 'Alt',
-    date: 'July 22, 2016',
+    date: '2016-07-22',
     tags: ['Innovation', 'Startups'],
     summary:
       'Participated in innovative projects and startup development. Focused on technological innovation and rapid growth.',
@@ -129,12 +135,12 @@ const Post = ({ data }) => {
             className='card-img-top'
             style={{ width: '100%', objectFit: 'cover' }}
             src={thumbnail.url}
-            alt='experience post thumbnail..'
+            alt='experience post thumbnail'
             width={250}
             height={250}
           />
         ) : (
-          <div>No Thumbnail Available..</div>
+          <div>No Thumbnail Available</div>
         )}
         <span className='_date'>{dateToText(date)}</span>
       </span>
@@ -156,8 +162,6 @@ const PostsList = () => {
   const { fetchedData } = useContext(Context)
   const [swiperInstance, setSwiperInstance] = useState(null)
   const [slideEdge, setSlideEdge] = useState([null, null])
-
-  console.log('Fetched Data in PostsList:', fetchedData)
 
   const handleNav = (action) => {
     if (!swiperInstance) return
@@ -218,7 +222,6 @@ const PostsList = () => {
 }
 
 const Experience = (props) => {
-  const { data, ...otherProps } = props
   const initialState = {
     show: false,
     data: null,
@@ -237,7 +240,7 @@ const Experience = (props) => {
 
   const [state, dispatch] = useReducer(stateReducer, initialState)
   const contextData = {
-    fetchedData: data,
+    fetchedData: experienceData,
     state,
     dispatch,
   }
@@ -249,7 +252,7 @@ const Experience = (props) => {
         description: 'My most relevant experiences...',
       }}
       altBg={false}
-      {...otherProps}
+      {...props}
     >
       <Row>
         <Col xs='12'>
@@ -307,28 +310,6 @@ const PostLightbox = () => {
 }
 
 export default Experience
-
-export const getStaticProps = async () => {
-  let serializedExperienceData = []
-
-  try {
-    serializedExperienceData = await Promise.all(
-      experienceData.map(async (item) => ({
-        ...item,
-        content: await serialize(item.content),
-      })),
-    )
-    console.log('Fetched experience data:', serializedExperienceData)
-  } catch (error) {
-    console.error('Fetch error:', error)
-  }
-
-  return {
-    props: {
-      data: serializedExperienceData,
-    },
-  }
-}
 
 // import { useContext, createContext, useReducer, useState } from 'react'
 // import SectionWrapper from 'root/src/components/section-wrapper'
