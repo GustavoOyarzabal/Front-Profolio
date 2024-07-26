@@ -1,12 +1,16 @@
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
+  options: {
+    providerImportSource: '@mdx-js/react',
+  },
 })
 
-const nextConfig = {
+module.exports = withMDX({
   reactStrictMode: true,
   swcMinify: true,
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   images: {
-    domains: ['res.cloudinary.com'],
+    domains: ['res.cloudinary.com'], // dominio cloudinary
     formats: ['image/avif', 'image/webp'],
   },
   compiler: {
@@ -19,10 +23,7 @@ const nextConfig = {
     scrollRestoration: true,
     largePageDataBytes: 128 * 100000,
   },
-  pageExtensions: ['js', 'jsx', 'md', 'mdx'],
-}
-
-module.exports = withMDX(nextConfig)
+})
 
 // const nextConfig = {
 //   reactStrictMode: true,
