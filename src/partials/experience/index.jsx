@@ -8,7 +8,6 @@ import { Card, Col, Row, Container } from 'react-bootstrap'
 import Lightbox from 'root/src/components/lightbox'
 import classNames from 'classnames'
 import MdxRenderer from 'root/src/components/mdx-renderer'
-import { serialize } from 'next-mdx-remote/serialize'
 import styled from './style'
 
 const capitalizeFirstLetter = (string) =>
